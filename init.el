@@ -420,7 +420,7 @@
 (global-set-key (kbd "C-S-f")   'ack-and-a-half)
 (global-set-key (kbd "C-x M-d") 'dired-r)
 (global-set-key (kbd "<f8>")    'toggle-truncate-lines)
-
+(global-set-key (kbd "C-x g")   'magit-status)
 
 ;; Window management - windmove to switch, windsize to resize
 (require 'windsize)
