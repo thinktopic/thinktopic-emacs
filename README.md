@@ -3,7 +3,7 @@ rally-emacs
 
 Hooray we can pair with no lag.  You just need to use emacs.  That isn't a trivial switch to make, but this should help a bunch.  Clone this repo.  `cd` into the directory and run `setup.sh`.  Next, add these lines to your `.zshrc` file:
 
-```
+```bash
 export TERM=xterm-256color                                                                                                                                                                                                                                                                                                  
 alias edit='emacsclient --no-wait'                                                                                                                                                                                                                                                                                          
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'  
