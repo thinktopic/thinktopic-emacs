@@ -113,6 +113,9 @@
 ;; Install packages
 (ensure-packages-are-installed my-packages)
 
+;;; Autocomplete
+(require 'ac-nrepl)
+(global-auto-complete-mode)
 
 ;; Directories for stuff that's not in elpa or marmalade (eg:
 ;; blackboard):
