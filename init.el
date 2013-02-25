@@ -2,9 +2,9 @@
 
 ;; The single most important thing in any .emacs file:
 (if (fboundp 'set-message-beep)
-  (set-message-beep 'silent))
+    (set-message-beep 'silent))
 (if (boundp 'ring-bell-function)
-  (setq ring-bell-function '(lambda () nil)))
+    (setq ring-bell-function '(lambda () nil)))
 
 ;; gui stuff
 (tool-bar-mode -1)
@@ -28,8 +28,8 @@
   (custom-set-faces
    (if is-mac
        '(default ((t (:inherit nil :stipple nil :background "#0C1021" :foreground "#F8F8F8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 139 :width normal :foundry "unknown" :family "Monaco"))))
-       '(default ((t (:inherit nil :stipple nil :background "#0C1021" :foreground "#F8F8F8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
-       )))
+     '(default ((t (:inherit nil :stipple nil :background "#0C1021" :foreground "#F8F8F8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+     )))
 
 ;; I finally figured out why opening and saving files was sooooooo
 ;; slow!!!
@@ -42,7 +42,7 @@
 ;; http://stackoverflow.com/questions/9435019/how-do-i-source-my-zshrc-within-emacs
 (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
   (setenv "PATH" path)
-  (setq exec-path 
+  (setq exec-path
         (append
          (split-string-and-unquote path ":")
          exec-path)))
@@ -51,7 +51,7 @@
 ;; Set up package archives
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+                                        ;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; Function to install a list of packages
@@ -67,48 +67,49 @@
 
 ;; List of packages that like to have
 (defvar my-packages
- '(
-   idle-highlight-mode
-   windsize
-   expand-region
-   multiple-cursors
+  '(
+    idle-highlight-mode
+    windsize
+    expand-region
+    multiple-cursors
+    markdown-mode
 
-   ruby-mode
-   css-mode
-   yaml-mode
-   sass-mode
-   scss-mode
-   haml-mode
-   inf-ruby
-   less-css-mode
-   ;rinari
-   coffee-mode
+    ruby-mode
+    css-mode
+    yaml-mode
+    sass-mode
+    scss-mode
+    haml-mode
+    inf-ruby
+    less-css-mode
+                                        ;rinari
+    coffee-mode
 
-   clojure-mode
-   clojure-test-mode
-   align-cljlet
-   paredit
-   nrepl
+    clojure-mode
+    clojure-test-mode
+    align-cljlet
+    paredit
+    nrepl
 
-   auto-complete
-   ac-nrepl
+    auto-complete
+    ac-nrepl
 
-   jtags
-   scala-mode
-   
-   find-file-in-project
-   ack-and-a-half
-   smex
+    jtags
+    scala-mode
 
-   color-theme
-   color-theme-solarized
-   color-theme-twilight
-   zenburn-theme
+    find-file-in-project
+    ack-and-a-half
+    smex
 
-   magit
+    color-theme
+    color-theme-solarized
+    color-theme-twilight
+    zenburn-theme
 
-   yasnippet-bundle
-   ))
+    magit
+
+    yasnippet-bundle
+    ))
 
 ;; Install packages
 (ensure-packages-are-installed my-packages)
@@ -134,20 +135,20 @@
 (eval-after-load 'find-file-in-project
   '(setq ffip-patterns
          '(
-	   "*.clj"
-	   "*.css"
-	   "*.el"
-	   "*.html"
-	   "*.java"
-	   "*.js"
-	   "*.md"
-	   "*.org"
-	   "*.py"
-	   "*.rb"
-	   "*.scala"
-	   "*.sh"
-	   "*.txt"
-	   )))
+           "*.clj"
+           "*.css"
+           "*.el"
+           "*.html"
+           "*.java"
+           "*.js"
+           "*.md"
+           "*.org"
+           "*.py"
+           "*.rb"
+           "*.scala"
+           "*.sh"
+           "*.txt"
+           )))
 
 
 (require 'expand-region)
@@ -206,6 +207,9 @@
 ;; Ruby
 (dolist (f '("Gemfile$" "buildfile"))
   (add-to-list 'auto-mode-alist `(,f . ruby-mode)))
+
+;;; Markdown-mode
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 
 ;; Emacs is awsome, except when it comes to indenting code. Sigh.
@@ -327,12 +331,6 @@
     (set-variable 'dired-listing-switches old-value)))
 
 
-;; Maxmize on startup. TODO - make this work on linux too
-(defun maximize ()
-  (interactive)
-  (w32-send-sys-command 61488))         ; no idea why this works, but
-                                        ; it does.
-
 ;; Server-start. Not sure if this need to be in a hook, but it works well enough.
 (add-hook 'emacs-startup-hook
           'server-start)
@@ -399,20 +397,20 @@
   (insert (string-as-multibyte "ಠ_ಠ")))
 (global-set-key (kbd "C-x _") 'look-of-disapproval)
 
-;; automatically save buffers associated with files on buffer switch                                                                                                                                      
-;; and on windows switch                                                                                                                                                                                  
-(defadvice switch-to-buffer (before save-buffer-now activate)                                                                                                                                             
-  (when buffer-file-name (save-buffer)))                                                                                                                                                                  
-(defadvice other-window (before other-window-now activate)                                                                                                                                                
-  (when buffer-file-name (save-buffer)))                                                                                                                                                                  
-(defadvice windmove-up (before other-window-now activate)                                                                                                                                                 
-  (when buffer-file-name (save-buffer)))                                                                                                                                                                  
-(defadvice windmove-down (before other-window-now activate)                                                                                                                                               
-  (when buffer-file-name (save-buffer)))                                                                                                                                                                  
-(defadvice windmove-left (before other-window-now activate)                                                                                                                                               
-  (when buffer-file-name (save-buffer)))                                                                                                                                                                  
-(defadvice windmove-right (before other-window-now activate)                                                                                                                                              
-  (when buffer-file-name (save-buffer))) 
+;; automatically save buffers associated with files on buffer switch
+;; and on windows switch
+(defadvice switch-to-buffer (before save-buffer-now activate)
+  (when buffer-file-name (save-buffer)))
+(defadvice other-window (before other-window-now activate)
+  (when buffer-file-name (save-buffer)))
+(defadvice windmove-up (before other-window-now activate)
+  (when buffer-file-name (save-buffer)))
+(defadvice windmove-down (before other-window-now activate)
+  (when buffer-file-name (save-buffer)))
+(defadvice windmove-left (before other-window-now activate)
+  (when buffer-file-name (save-buffer)))
+(defadvice windmove-right (before other-window-now activate)
+  (when buffer-file-name (save-buffer)))
 
 ;; Key bindings
 
