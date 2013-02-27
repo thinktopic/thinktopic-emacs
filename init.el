@@ -133,23 +133,25 @@
 
 ;;; ffip
 (eval-after-load 'find-file-in-project
-  '(setq ffip-patterns
-         '(
-           "*.clj"
-           "*.css"
-           "*.el"
-           "*.html"
-           "*.java"
-           "*.js"
-           "*.md"
-           "*.org"
-           "*.py"
-           "*.rb"
-           "*.scala"
-           "*.sh"
-           "*.txt"
-           "*.xml"
-           )))
+  '(progn
+     (setq ffip-patterns
+           '(
+             "*.clj"
+             "*.css"
+             "*.el"
+             "*.html"
+             "*.java"
+             "*.js"
+             "*.md"
+             "*.org"
+             "*.py"
+             "*.rb"
+             "*.scala"
+             "*.sh"
+             "*.txt"
+             "*.xml"
+             ))
+     (setq ffip-limit 8192)))
 
 
 (require 'expand-region)
