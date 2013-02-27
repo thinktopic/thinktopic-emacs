@@ -13,3 +13,13 @@ To start a pairing session
 3. run `emacs`
 4. anyone you want to pair with can ssh to your computer then type `tmux attach`
 5. to disconnect from the tmux session (but leave it running) type Control+b, d
+
+Add an emacs alias to your shell
+================================
+
+If you use the Rally Software version of oh-my-zsh you will have these changes to your shell.  If not add these lines to you shell configuration:
+
+```bash
+export TERM=xterm-256color
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+```
