@@ -1,7 +1,7 @@
 rally-emacs
 ===========
 
-Hooray we can pair with no lag.  You just need to use emacs.  That isn't a trivial switch to make, but this should help a bunch.  Clone this repo.  Pull oh-my-zsh.  `cd` into the directory and run `setup.sh`.
+Hooray we can pair with no lag.  You just need to use emacs.  That isn't a trivial switch to make, but this should help a bunch.  First install emacs.  Download a .dmg from http://emacsformacosx.com/  Clone this repo.  Pull oh-my-zsh.  `cd` into the directory and run `setup.sh`.
 
 Restart iterm and you are ready for hot tmuxxx action.
 
