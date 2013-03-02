@@ -41,4 +41,8 @@ The following packages are installed the very first time you start emacs.
 
 ## Getting Started with Emacs
 
-Maybe a couple of examples of the most important commands. Maybe a link to a more complete list of shutcuts.
+There is a ton to learn to be able to use emacs.  Here is a list of some useful commands:
+
+* To launch the emacs tutorial press `C-h t`
+* [Clojure with Emacs tutorial] (http://clojure-doc.org/articles/tutorials/emacs.html)
+* 
