@@ -33,6 +33,10 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 The following packages are installed the very first time you start emacs.
 
 * [Paraedit] (http://emacswiki.org/emacs/PareditCheatsheet) - Helps keep your parens balanced.
+* [nrepl] (https://github.com/kingtim/nrepl.el) - Evaluates clojure code within emacs
+* [ac-nrepl] (https://github.com/purcell/ac-nrepl) - Provides a function completion list
+* [clojure-mode] (https://github.com/technomancy/clojure-mode) - Clojure indentation and navigation
+* [find-file-in-project] (http://emacswiki.org/emacs/FindFileInProject) - Searches for files in a project
 * What other packages are being installed? What is their purpose? Link to their docs?
 
 ## Getting Started with Emacs
