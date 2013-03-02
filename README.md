@@ -45,4 +45,3 @@ There is a ton to learn to be able to use emacs.  Here is a list of some useful 
 
 * To launch the emacs tutorial press `C-h t`
 * [Clojure with Emacs tutorial] (http://clojure-doc.org/articles/tutorials/emacs.html)
-* 
