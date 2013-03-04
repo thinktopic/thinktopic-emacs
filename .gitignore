@@ -3,3 +3,4 @@ elpa
 ac-comphist.dat
 repl-port
 auto-save-list/
+user.init.el

@@ -486,3 +486,5 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(load-file "user.init.el")
