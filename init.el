@@ -158,6 +158,9 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; disable autosave
+(setq auto-save-default nil)
+(setq make-backup-files nil)
 
 ;; uniquify - makes sure buffer names are unique in a sensible way.
 (require 'uniquify)
