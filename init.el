@@ -483,4 +483,4 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-(load-file "user.init.el")
+(load-file (concat user-emacs-directory "user.init.el"))
