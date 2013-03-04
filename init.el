@@ -22,9 +22,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-;;
-(desktop-save-mode 1)
-
 (let ((is-mac (eq system-type 'darwin)))
   (custom-set-faces
    (if is-mac
