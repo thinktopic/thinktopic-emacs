@@ -335,11 +335,6 @@
     (set-variable 'dired-listing-switches old-value)))
 
 
-;; Server-start. Not sure if this need to be in a hook, but it works well enough.
-(add-hook 'emacs-startup-hook
-          'server-start)
-
-
 (defun turn-on-idle-hilight ()
   (idle-highlight-mode t))
 
