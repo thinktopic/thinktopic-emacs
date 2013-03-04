@@ -5,5 +5,5 @@ brew install tmux
 
 if [ ! -f `pwd`/user.init.el ];
 then
-    cp `pwd`/pristine/user.init.el `pwd`/.
+    cp `pwd`/pristine/user.init.el.default `pwd`/user.init.el
 fi
