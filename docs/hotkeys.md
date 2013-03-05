@@ -10,6 +10,10 @@ File/buffer/window commands
 * `C-x 0`       Delete current window
 * `C-x 2`       Split window horizontally
 * `C-x 3`       Split window vertically
+* `S-Arrow`     Activate window to the direction you press
+* `C-S-Arrow`   Shrink or grow active window
+* `F9`          Toggle paredit mode (will default to on for clojure)
+* `M-x`         Run/search for a command
 
 Movement commands
 =================
