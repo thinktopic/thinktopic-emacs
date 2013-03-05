@@ -53,6 +53,7 @@ Clojure Commands
 * `C-c ,`          Run tests
 * `C-c '`          View test failure messages
 * `C-c C-k`        Compile and load buffer
+* `C-c M-n`        Load namespace of active buffer into REPL
 * `C-x C-e`        Evaluate sexp
 * `C-c M-o`        Clear REPL buffer
 * `M-.`            Jump to definition
