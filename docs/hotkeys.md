@@ -1,7 +1,7 @@
 File/buffer/window commands
 ===========================
 * `C-x C-f`     Find file
-* `C-x c`       Find a file within the current git project
+* `C-c f`       Find a file within the current git project
 * `C-x C-s`     Save buffer
 * `C-x s`       Save file (like save-as)
 * `C-x b`       Switch buffer
