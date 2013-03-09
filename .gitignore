@@ -1,6 +1,9 @@
-backups
-elpa
+.mc-lists.el
 ac-comphist.dat
-repl-port
 auto-save-list/
+backups
+bookmarks
+elpa
+repl-port
+url/
 user.init.el
