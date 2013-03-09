@@ -6,7 +6,7 @@ that you would otherwise have to do on your own.
 We think for a couple of reasons.
 
 1. Emacs is currently the best environment for developing Clojure.
-2. Using Emacs allows us to remote pair without having the "lag" of a VNC session.
+2. Using Emacs allows us to [remote pair](README.md#remote-pairing) without having the "lag" of a VNC session.
 
 ## How do I get started?
 * First install emacs.  Download a .dmg from http://emacsformacosx.com/  
