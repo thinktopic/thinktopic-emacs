@@ -476,6 +476,13 @@
 (global-set-key (kbd "C-c q") 'join-line)
 
 
+(defun maybe-quit ()
+  (interactive)
+  (if (yes-or-no-p "Quit Emacs?")
+      (save-buffers-kill-terminal)))
+
+(global-set-key (kbd "C-x C-c") 'maybe-quit)
+
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
   (lambda () (interactive)
