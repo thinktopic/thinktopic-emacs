@@ -4,20 +4,23 @@ that you would otherwise have to do on your own.
 
 ## Why would I want to use Emacs?
 We think for a couple of reasons.
+
 1. Emacs is currently the best environment for developing Clojure.
 2. Using Emacs allows us to remote pair without having the "lag" of a VNC session.
 
 ## How do I get started?
-1. First install emacs.  Download a .dmg from http://emacsformacosx.com/  
-2. Clone this repo.  
-3. Set up shell
+* First install emacs.  Download a .dmg from http://emacsformacosx.com/  
+* Clone this repo.  
+* Set up shell
   * If you are using Rally's oh-my-zsh, do a pull and source `.zshrc`.
   * If not, make sure you add the following to your shell.
+
 ```bash
 export TERM=xterm-256color
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 ```
-4. `cd` into the clone of this repository and run `setup.sh`.
+
+* `cd` into the clone of this repository and run `setup.sh`.
 
 ## OK, Now what? How do I use Emacs?
 It does take some work to become an emacs master, but with just a few keyboard shortcuts you can get started.
