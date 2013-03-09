@@ -46,6 +46,7 @@ the above keyboard shortcuts, you can find more information below.
 * To launch the emacs tutorial press `C-h t`
 * [Clojure with Emacs tutorial] (http://clojure-doc.org/articles/tutorials/emacs.html)
 * [Hotkeys] (docs/hotkeys.md)
+* [http://www.cs.rutgers.edu/LCSR-Computing/some-docs/emacs-chart.html](http://www.cs.rutgers.edu/LCSR-Computing/some-docs/emacs-chart.html)
 
 ## Remote Pairing
 1. Launch `iTerm` 
