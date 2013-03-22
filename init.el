@@ -87,7 +87,7 @@
     clojure-test-mode
     align-cljlet
     paredit
-    nrepl
+    ;nrepl
 
     auto-complete
     ac-nrepl
@@ -111,13 +111,16 @@
 ;; Install packages
 (ensure-packages-are-installed my-packages)
 
+;;; Use nrepl from github
+(add-to-list 'load-path (expand-file-name "~/src/nrepl.el"))
+(require 'nrepl)
+
 ;;; Autocomplete
 (require 'ac-nrepl)
 (global-auto-complete-mode)
 
 ;; Directories for stuff that's not in elpa or marmalade (eg:
 ;; blackboard):
-(add-to-list 'load-path (expand-file-name "~/src/nrepl.el"))
 (add-to-list 'load-path (concat user-emacs-directory "color-themes"))
 
 ;; Autoloads for color themes. Note: we have a slightly tweaked
@@ -479,6 +482,10 @@
       (save-buffers-kill-terminal)))
 
 (global-set-key (kbd "C-x C-c") 'maybe-quit)
+
+;;; Unbind ESC ESC ESC from keyboard-escape-quit because it's too easy
+;;; to do by accident
+(global-set-key (kbd "M-ESC ESC") nil)
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
