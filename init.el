@@ -425,17 +425,23 @@
 ;; Key bindings
 
 ;; Misc:
-(global-set-key (kbd "C-S-w")   'make-writable)
-(global-set-key (kbd "C-S-k")   'kill-this-buffer)
-(global-set-key (kbd "C-S-f")   'ack-and-a-half)
-(global-set-key (kbd "C-x M-d") 'dired-r)
-(global-set-key (kbd "<f8>")    'toggle-truncate-lines)
-(global-set-key (kbd "C-x g")   'magit-status)
-(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-S-w")     'make-writable)
+(global-set-key (kbd "C-S-k")     'kill-this-buffer)
+(global-set-key (kbd "C-x C-k k") 'kill-this-buffer)
 
-;; Rebind C-<up> for killing backwards
-(global-unset-key (kbd "C-<up>"))
-(global-set-key (kbd "C-<up>") 'paredit-splice-sexp-killing-backward)
+(global-set-key (kbd "C-S-f")     'ack-and-a-half) ; doesn't work in terminal
+(global-set-key (kbd "C-x C-g")   'ack-and-a-half) ; think "g for grep"
+(global-set-key (kbd "C-x M-g")   'ack-and-a-half-same)
+
+(global-set-key (kbd "C-x M-d")   'dired-r)
+(global-set-key (kbd "<f8>")      'toggle-truncate-lines)
+(global-set-key (kbd "C-x g")     'magit-status)
+(global-set-key (kbd "RET")       'newline-and-indent)
+
+;; Set up paredit keybindings that work in terminal
+(eval-after-load 'paredit
+  '(progn
+     (define-key paredit-mode-map (kbd "C-<up>") 'paredit-splice-sexp-killing-backward)))
 
 ;; Window management - windmove to switch, windsize to resize
 (require 'windsize)
@@ -456,10 +462,10 @@
 (global-set-key (kbd "M-x") 'smex)
 
 ;; File finding
-(global-set-key (kbd "C-x f") 'recentf-ido-find-file)
-(global-set-key (kbd "C-c f") 'find-file-in-project)
-(global-set-key (kbd "C-c y") 'bury-buffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-x f")   'recentf-ido-find-file)
+(global-set-key (kbd "C-c f")   'find-file-in-project)
+(global-set-key (kbd "C-c y")   'bury-buffer)
+(global-set-key (kbd "C-c r")   'revert-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Completion that uses many different methods to find options.
@@ -476,8 +482,8 @@
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
 ;; Use regex searches by default.
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-s")   'isearch-forward-regexp)
+(global-set-key (kbd "C-r")   'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
@@ -487,7 +493,8 @@
 ;; Help should search more than just commands
 (global-set-key (kbd "C-h a") 'apropos)
 
-(global-set-key (kbd "C-c q") 'join-line)
+;; I use this a lot
+(global-set-key (kbd "C-x j") 'join-line)
 
 
 (defun maybe-quit ()
@@ -510,10 +517,6 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-(let ((user-init (concat user-emacs-directory "user.init.el")))
-  (when (file-exists-p user-init)
-    (load-file user-init)))
-
 ;; Start the emacs server
 (require 'server)
 (if (not (server-running-p))
@@ -522,4 +525,10 @@
 ;;Revert a file if the buffer is unmodified and it changes on disk
 (global-auto-revert-mode 1)
 
+
+;;; Load user-init.
+;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
+(let ((user-init (concat user-emacs-directory "user.init.el")))
+  (when (file-exists-p user-init)
+    (load-file user-init)))
 
