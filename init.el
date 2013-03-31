@@ -437,6 +437,15 @@
 (global-set-key (kbd "<f8>")      'toggle-truncate-lines)
 (global-set-key (kbd "C-x g")     'magit-status)
 
+(defun smart-open-line ()
+    "Insert an empty line after the current line.
+     Position the cursor at its beginning, according to the current mode."
+    (interactive)
+    (move-end-of-line nil)
+    (newline-and-indent))
+
+(global-set-key (kbd "C-o") 'smart-open-line)
+
 ;; Set up paredit keybindings that work in terminal
 (eval-after-load 'paredit
   '(progn
