@@ -436,7 +436,6 @@
 (global-set-key (kbd "C-x M-d")   'dired-r)
 (global-set-key (kbd "<f8>")      'toggle-truncate-lines)
 (global-set-key (kbd "C-x g")     'magit-status)
-(global-set-key (kbd "RET")       'newline-and-indent)
 
 ;; Set up paredit keybindings that work in terminal
 (eval-after-load 'paredit
@@ -493,9 +492,8 @@
 ;; Help should search more than just commands
 (global-set-key (kbd "C-h a") 'apropos)
 
-;; I use this a lot
+;; Join the previous line
 (global-set-key (kbd "C-x j") 'join-line)
-
 
 (defun maybe-quit ()
   (interactive)
@@ -524,6 +522,9 @@
 
 ;;Revert a file if the buffer is unmodified and it changes on disk
 (global-auto-revert-mode 1)
+
+;;Indent after hitting return
+(electric-indent-mode 1)
 
 
 ;;; Load user-init.
