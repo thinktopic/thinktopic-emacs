@@ -95,7 +95,7 @@
     jtags
     scala-mode
 
-    find-file-in-project
+    projectile
     ack-and-a-half
     smex
 
@@ -111,6 +111,9 @@
 
 ;; Install packages
 (ensure-packages-are-installed my-packages)
+
+;; Turn on projectile
+(projectile-global-mode)
 
 ;;; Clone (or symlink) repos into ~/.emacs.d/checkouts to use the bleeding edge
 ;;; version. Useful for things like nrepl that move fast.
@@ -142,29 +145,6 @@
 ;; Default to a theme that looks reasonably nice in 256-color
 (require 'color-theme)
 (color-theme-twilight)
-
-;;; ffip
-(eval-after-load 'find-file-in-project
-  '(progn
-     (setq ffip-patterns
-           '(
-             "*.clj"
-             "*.css"
-             "*.el"
-             "*.html"
-             "*.java"
-             "*.js"
-             "*.md"
-             "*.org"
-             "*.py"
-             "*.rb"
-             "*.scala"
-             "*.sh"
-             "*.txt"
-             "*.xml"
-             ))
-     (setq ffip-limit 8192)))
-
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -472,7 +452,7 @@
 
 ;; File finding
 (global-set-key (kbd "C-x f")   'recentf-ido-find-file)
-(global-set-key (kbd "C-c f")   'find-file-in-project)
+(global-set-key (kbd "C-c f")   'projectile-find-file)
 (global-set-key (kbd "C-c y")   'bury-buffer)
 (global-set-key (kbd "C-c r")   'revert-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)

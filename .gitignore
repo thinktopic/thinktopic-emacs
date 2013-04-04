@@ -9,3 +9,4 @@ repl-port
 url/
 user.init.el
 eshell
+projectile.cache
