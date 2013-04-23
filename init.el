@@ -387,9 +387,10 @@
     active-modes))
 
 (defun string/ends-with (s ending)
-        "return non-nil if string S ends with ENDING."
-              (let ((elength (length ending)))
-                        (string= (substring s (- 0 elength)) ending)))
+  "return non-nil if string S ends with ENDING."
+  (let ((elength (length ending)))
+    (and (>= (length s) elength)
+         (string= (substring s (- 0 elength)) ending))))
 
 (defun hide-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
@@ -403,7 +404,8 @@
 (global-set-key (kbd "C-x _") 'look-of-disapproval)
 
 (defun hyper-save-buffer ()
-  (when (and (member "nrepl-interaction-mode" (get-active-modes)) (not (string/ends-with (buffer-name) "project.clj")))
+  (when (and (member "nrepl-interaction-mode" (get-active-modes))
+             (not (string/ends-with (buffer-name) "project.clj")))
     (nrepl-load-current-buffer)))
 
 ;; automatically save buffers associated with files on buffer switch
