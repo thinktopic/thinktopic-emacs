@@ -82,6 +82,7 @@
     less-css-mode
     ;;rinari
     coffee-mode
+    mustache-mode
 
     clojure-mode
     clojure-test-mode

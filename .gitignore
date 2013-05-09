@@ -10,3 +10,4 @@ url/
 user.init.el
 eshell
 projectile.cache
+tramp
