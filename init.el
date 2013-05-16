@@ -210,6 +210,8 @@
 ;;; Markdown-mode
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
+;;; Mustache templates
+(add-to-list 'auto-mode-alist '("\\.mustache" . mustache-mode))
 
 ;; Emacs is awsome, except when it comes to indenting code. Sigh.
 (defun tabs-mode ()
@@ -582,4 +584,5 @@
 (key-chord-define-global "JJ" 'switch-to-previous-buffer)
 (key-chord-define-global "jj" 'ace-jump-mode)
 (key-chord-define-global "ff" 'projectile-find-file)
+(key-chord-define-global "gg" 'goto-line)
 (key-chord-mode +1)
