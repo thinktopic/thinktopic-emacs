@@ -408,27 +408,32 @@
   (insert (string-as-multibyte "ಠ_ಠ")))
 (global-set-key (kbd "C-x _") 'look-of-disapproval)
 
-(defun hyper-save-buffer ()
+
+(defun nrepl-auto-reload ()
   (when (and (member "nrepl-interaction-mode" (get-active-modes))
              (not (string/ends-with (buffer-name) "project.clj")))
     (nrepl-load-current-buffer)))
 
+(defun save-buffer-when-modified ()
+  (when (buffer-modified-p) (save-buffer)))
+
+
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
 (defadvice switch-to-buffer (before save-buffer-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice other-window (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-up (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-down (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-left (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-right (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice save-buffer (after nrepl-reload-saved-file activate)
-  (hyper-save-buffer))
+  (when (buffer-modified-p) (nrepl-auto-reload)))
 
 ;; Key bindings
 
@@ -534,39 +539,8 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;; Start the emacs server
-(require 'server)
-(if (not (server-running-p))
-  (server-start))
-
 ;;Revert a file if the buffer is unmodified and it changes on disk
 (global-auto-revert-mode 1)
-
-;;Indent after hitting return
-(electric-indent-mode 1)
-
-
-;;; Load user-init.
-;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
-(let ((user-init (concat user-emacs-directory "user.init.el")))
-  (when (file-exists-p user-init)
-    (load-file user-init)))
-
-
-;; Find recent files
-(require 'recentf)
-(setq recentf-max-saved-items 200
-      recentf-max-menu-items 15)
-(recentf-mode +1)
-
-(defun recentf-ido-find-file ()
-  "Find a recent file using ido."
-  (interactive)
-  (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
-    (when file
-      (find-file file))))
-
-(global-set-key (kbd "C-c d")  'recentf-ido-find-file)
 
 
 ;;Key chords
@@ -585,4 +559,21 @@
 (key-chord-define-global "jj" 'ace-jump-mode)
 (key-chord-define-global "ff" 'projectile-find-file)
 (key-chord-define-global "gg" 'goto-line)
-(key-chord-mode +1)
+
+(defun jakify ()
+  (key-chord-mode +1))
+
+
+;; Start the emacs server
+(require 'server)
+(if (not (server-running-p))
+  (server-start))
+
+
+;;; Load user-init.
+;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
+(let ((user-init (concat user-emacs-directory "user.init.el")))
+  (when (file-exists-p user-init)
+    (load-file user-init)))
+
+

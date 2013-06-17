@@ -7,7 +7,9 @@ checkouts/
 elpa
 repl-port
 url/
-user.init.el
 eshell
 projectile.cache
 tramp
+user.init.el
+custom.el
+
