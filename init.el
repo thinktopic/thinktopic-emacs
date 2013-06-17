@@ -395,20 +395,23 @@
   (insert (string-as-multibyte "ಠ_ಠ")))
 (global-set-key (kbd "C-x _") 'look-of-disapproval)
 
+(defun save-buffer-when-modified ()
+  (when (buffer-modified-p) (save-buffer)))
+
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
 (defadvice switch-to-buffer (before save-buffer-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice other-window (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-up (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-down (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-left (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 (defadvice windmove-right (before other-window-now activate)
-  (when buffer-file-name (save-buffer)))
+  (when buffer-file-name (save-buffer-when-modified)))
 
 ;; Key bindings
 
