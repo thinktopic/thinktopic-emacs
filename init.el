@@ -561,6 +561,7 @@
 (key-chord-define-global "gg" 'goto-line)
 
 (defun jakify ()
+  (interactive)
   (key-chord-mode +1))
 
 
