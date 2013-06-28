@@ -65,7 +65,7 @@
 (vendor 'key-chord)
 (vendor 'ace-jump-mode)
 (vendor 'puppet-mode)
-
+(vendor 'yaml-mode)
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
