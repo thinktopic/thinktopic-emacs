@@ -12,6 +12,7 @@
 (load "rally/package")
 (load "rally/defuns")
 (load "rally/global")
+(load "rally/mac")
 (load "rally/bindings")
 (load "rally/zsh")
 (load "rally/uniquify")
