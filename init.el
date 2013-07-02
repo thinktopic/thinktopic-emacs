@@ -46,7 +46,7 @@
 (vendor 'color-theme)
 (vendor 'color-theme-solarized)
 (vendor 'zenburn-theme)
-(vendor 'magit 'magit-status)
+(vendor 'magit)
 (vendor 'yasnippet-bundle)
 (vendor 'multiple-cursors 'mc/edit-lines 'mc/mark-next-like-this 'mc/mark-previous-like-this 'mc/mark-all-like-this 'set-rectangular-region-anchor)
 (vendor 'key-chord)
