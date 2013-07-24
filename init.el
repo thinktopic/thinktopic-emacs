@@ -74,6 +74,6 @@
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
-;; (let ((user-init (concat user-emacs-directory "user.init.el")))
-;;   (when (file-exists-p user-init)
-;;     (load-file user-init)))
+(let ((user-init (concat user-emacs-directory "user.init.el")))
+  (when (file-exists-p user-init)
+    (load-file user-init)))
