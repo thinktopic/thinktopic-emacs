@@ -54,6 +54,7 @@
 (vendor 'clojure-refactoring-mode)
 (vendor 'smooth-scrolling)
 (vendor 'rainbow-delimiters)
+(vendor 'powerline)
 
 (load "rally/mac")
 (load "rally/bindings")
