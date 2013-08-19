@@ -55,6 +55,7 @@
 (vendor 'smooth-scrolling)
 (vendor 'rainbow-delimiters)
 (vendor 'powerline)
+(vendor 'epresent)
 
 (load "rally/mac")
 (load "rally/bindings")
