@@ -55,6 +55,11 @@
 (vendor 'smooth-scrolling)
 (vendor 'rainbow-delimiters)
 (vendor 'powerline)
+
+;; org has to be different
+(ensure-package-is-installed 'org-plus-contrib)
+(load-library "rally/org.el")
+
 (vendor 'epresent)
 
 (load "rally/mac")
