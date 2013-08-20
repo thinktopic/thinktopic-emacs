@@ -15,9 +15,9 @@
 (setq package-archive-enable-alist '(("gnu")
                                      ("marmalade")
                                      ("org" org org-plus-contrib)
-                                     ("melpa" magit melpa)))
-(setq package-archive-exclude-alist '(("gnu" magit  melpa org)
-                                      ("marmalade" magit melpa org)))
+                                     ("melpa" melpa)))
+(setq package-archive-exclude-alist '(("gnu" melpa org)
+                                      ("marmalade" melpa org)))
 (package-refresh-contents)
 
 ;;; Clone (or symlink) repos into ~/.emacs.d/checkouts to use the bleeding edge
