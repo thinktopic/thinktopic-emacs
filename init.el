@@ -80,6 +80,7 @@
 (load "rally/window")
 (load "rally/server")
 (load "rally/recentf")
+(load "rally/oracle")
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
