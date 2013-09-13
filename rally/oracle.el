@@ -31,7 +31,7 @@
                                   conn))
          (connection-string (format "%s/%s@//%s" username password connection)))
     (sqlplus connection-string
-             (concat "*" connection-string "*")
+             (concat "*" username "-input*")
              'show-output-buffer)))
 
 (require 'sqlplus)
