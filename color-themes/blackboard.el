@@ -22,7 +22,7 @@
   (interactive)
   (color-theme-install
    '(color-theme-blackboard
-     ((background-color . "#0C1021")
+     ((background-color . "#121212") ;;(background-color . "#0C1021")
       (background-mode . dark)
       (border-color . "black")
       (cursor-color . "#A7A7A7")
