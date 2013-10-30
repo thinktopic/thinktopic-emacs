@@ -63,6 +63,7 @@
 (vendor 'epresent)
 (vendor 'window-numbering)
 (vendor 'hideshow-org)
+(vendor 'pbcopy)
 
 (load "rally/mac")
 (load "rally/bindings")
