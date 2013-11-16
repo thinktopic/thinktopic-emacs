@@ -42,7 +42,7 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'imenu)
+(global-set-key (kbd "C-x C-d") 'imenu) ; replaces ido-list-directory
 
 ;; Help should search more than just commands
 (global-set-key (kbd "C-h a") 'apropos)

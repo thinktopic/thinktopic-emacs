@@ -11,13 +11,13 @@
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)   
 (add-hook 'org-mode-hook 'org-display-inline-images)
 
-;; Patch ob-clojure to work with nrepl
-(declare-function nrepl-send-string-sync "ext:nrepl" (code &optional ns))
+;; Patch ob-clojure to work with the cider repl
+(declare-function nrepl-send-string-sync "ext:cider" (code &optional ns))
 
 (require 'ob-clojure)
 (defun org-babel-execute:clojure (body params)
   "Execute a block of Clojure code with Babel."
-  (require 'nrepl)
+  (require 'cider)
   (with-temp-buffer
     (insert (org-babel-expand-body:clojure body params))
     ((lambda (result)
