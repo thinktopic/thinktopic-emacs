@@ -80,6 +80,10 @@
      (rainbow-delimiters-depth-8-face ((t (:foreground "color-64"))))
      (rainbow-delimiters-depth-9-face ((t (:foreground "color-166"))))
 
+     ;; To make powerline pretty
+     (mode-line ((t (:background "gray10" :foreground "#4c83ff"))))
+     (mode-line-inactive ((t (:background "gray10" :foreground "gray30"))))
+
      )))
 
 (provide 'blackboard)
