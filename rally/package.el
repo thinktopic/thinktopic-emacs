@@ -4,7 +4,6 @@
 ;; http://www.wisdomandwonder.com/article/8012/how-to-choose-packages-between-two-elpa-repositories
 (require 'package)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
@@ -12,12 +11,8 @@
 (require 'melpa)
 
 ;; These help direct which packages will/will not be loaded from which archive.
-(setq package-archive-enable-alist '(("gnu")
-                                     ("marmalade")
-                                     ("org" org org-plus-contrib)
-                                     ("melpa" melpa)))
-(setq package-archive-exclude-alist '(("gnu" melpa org)
-                                      ("marmalade" melpa org)))
+(setq package-archive-enable-alist '(("org" org org-plus-contrib)))
+(setq package-archive-exclude-alist '(("gnu" melpa org)))
 (package-refresh-contents)
 
 ;;; Clone (or symlink) repos into ~/.emacs.d/checkouts to use the bleeding edge

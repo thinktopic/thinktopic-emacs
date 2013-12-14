@@ -7,4 +7,5 @@
       ido-use-filename-at-point 'guess
       ido-use-virtual-buffers nil
       ido-handle-duplicate-virtual-buffers 2
-      ido-max-prospects 10)
+      ido-max-prospects 10
+      ido-case-fold t)
