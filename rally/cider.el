@@ -23,6 +23,15 @@
 (defadvice save-buffer (after cider-reload-saved-file activate)
   (cider-auto-reload))
 
+(defun cider-namespace-refresh ()
+  (interactive)
+  (cider-repl-clear-buffer)
+  (cider-interactive-eval
+   "(require 'user)
+    (user/reload-and-test)"))
+
+(define-key clojure-mode-map (kbd "C-c M-t") 'cider-namespace-refresh)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; The following bits fix up some stuff that is busted in cider
