@@ -55,6 +55,7 @@
 (vendor 'smooth-scrolling)
 (vendor 'rainbow-delimiters)
 (vendor 'powerline)
+(vendor 'clj-refactor)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
@@ -82,6 +83,7 @@
 (load "rally/server")
 (load "rally/recentf")
 (load "rally/oracle")
+(load "rally/refactor")
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
