@@ -20,7 +20,7 @@ export TERM=xterm-256color
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 ```
 
-* `cd` into the clone of this repository and run `setup.sh`.
+* `cd` into the clone of this repository and run `setup`.
 
 ## OK, Now what? How do I use Emacs?
 It does take some work to become an emacs master, but with just a few keyboard shortcuts you can get started.

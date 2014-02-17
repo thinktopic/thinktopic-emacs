@@ -84,6 +84,7 @@
 (load "rally/recentf")
 (load "rally/oracle")
 (load "rally/refactor")
+(load "rally/mouse")
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.

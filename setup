@@ -1,4 +1,6 @@
-cp .tmux.conf ~/.
+rm ~/.tmux.conf
+ln -s `pwd`/.tmux.conf ~/.tmux.conf
+
 cp pristine/com.googlecode.iterm2.plist ~/Library/Preferences/.
 ln -s `pwd`/ ~/.emacs.d
 brew install tmux
