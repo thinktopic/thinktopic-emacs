@@ -9,6 +9,10 @@ ln -s `pwd`/ ~/.emacs.d
 brew install tmux
 brew install ack
 brew install reattach-to-user-namespace
+brew install python
+pip install https://github.com/Lokaltog/powerline/tarball/develop
+
+cp fonts/Inconsolata-dz\ for\ Powerline.otf ~/Library/Fonts
 
 if [ ! -f `pwd`/user.init.el ];
 then
