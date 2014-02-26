@@ -1,0 +1,4 @@
+--type-add=css=.less,.sass,.scss
+--type-add=clojure=.cljs
+--ignore-dir=node_modules
+--ignore-dir=bower_components

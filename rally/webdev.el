@@ -3,6 +3,7 @@
 ;;; js2-mode is much better than the built-in js-mode
 (vendor 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(custom-set-variables '(js2-basic-offset 2))
 
 ;;; Coffee mode
 (vendor 'coffee-mode)
@@ -24,6 +25,12 @@
 
 ;;; Use web-mode for Mustache templates - it works.
 (add-to-list 'auto-mode-alist '("\\.mustache" . web-mode))
+
+;;; Tell yasnippet that web-mode == html-mode (more-or-less)
+(defun yas-html-mode ()
+  (yas-activate-extra-mode 'html-mode))
+(eval-after-load 'yasnippet
+  '(add-hook 'web-mode-hook 'yas-html-mode))
 
 ;;; Emmet-mode is the new zencoding-mode. If you have to write HTML by
 ;;; hand, this will blow your little mind.

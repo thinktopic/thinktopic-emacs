@@ -6,6 +6,8 @@ ln -s `pwd`/.tmux.conf ~/.tmux.conf
 cp pristine/com.googlecode.iterm2.plist ~/Library/Preferences/.
 ln -s `pwd`/ ~/.emacs.d
 
+ln -s `pwd`/.ackrc ~/.ackrc
+
 brew install tmux
 brew install ack
 brew install reattach-to-user-namespace
