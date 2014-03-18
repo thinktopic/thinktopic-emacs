@@ -18,6 +18,10 @@
 (vendor 'sass-mode)
 (vendor 'scss-mode)
 (vendor 'less-css-mode)
+(custom-set-variables '(css-indent-offset 2))
+
+;;; Rainbow-mode makes CSS colors real purdy.
+(vendor 'rainbow-mode)
 
 ;;; Web-mode is great for HTML with embedded JS and/or CSS
 (vendor 'web-mode)
@@ -26,16 +30,23 @@
 ;;; Use web-mode for Mustache templates - it works.
 (add-to-list 'auto-mode-alist '("\\.mustache" . web-mode))
 
+;;; yasnippet is hot
+(yas-global-mode +1)
+
 ;;; Tell yasnippet that web-mode == html-mode (more-or-less)
 (defun yas-html-mode ()
   (yas-activate-extra-mode 'html-mode))
 (eval-after-load 'yasnippet
   '(add-hook 'web-mode-hook 'yas-html-mode))
 
-;;; Emmet-mode is the new zencoding-mode. If you have to write HTML by
+;;; Web-mode inherits from prog-mode, but we don't want auto-fill.
+(add-hook 'Web-mode-hook '(lambda () (auto-fill-mode -1)))
+
+;;; emmet-mode is the new zencoding-mode. If you have to write HTML by
 ;;; hand, this will blow your little mind.
 (vendor 'emmet-mode)
-
+(define-key emmet-mode-keymap (kbd "C-j") nil)
+(define-key emmet-mode-keymap (kbd "C-c x") 'emmet-expand-line)
 
 ;;; Connect a js-repl to your web page, send JS to it, etc.
 (vendor 'skewer-mode)

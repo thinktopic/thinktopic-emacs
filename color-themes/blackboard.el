@@ -68,6 +68,7 @@
      (idle-highlight ((t (:background "#281812"))))
      (isearch-fail ((t (:background "red4"))))
      (clojure-test-error-face ((t (:background "orange3"))))
+     (magit-item-highlight ((t (:background nil))))
 
      ;; To make KG happy:
      (rainbow-delimiters-depth-1-face ((t (:foreground "grey55"))))
