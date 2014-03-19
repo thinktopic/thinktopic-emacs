@@ -40,7 +40,7 @@
   '(add-hook 'web-mode-hook 'yas-html-mode))
 
 ;;; Web-mode inherits from prog-mode, but we don't want auto-fill.
-(add-hook 'Web-mode-hook '(lambda () (auto-fill-mode -1)))
+(add-hook 'web-mode-hook '(lambda () (auto-fill-mode -1)))
 
 ;;; emmet-mode is the new zencoding-mode. If you have to write HTML by
 ;;; hand, this will blow your little mind.
