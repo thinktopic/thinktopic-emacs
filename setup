@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rm ~/.lein/profiles.clj
+ln -s `pwd`/profiles.clj ~/.lein/profiles.clj
+
 rm ~/.tmux.conf
 ln -s `pwd`/.tmux.conf ~/.tmux.conf
 
