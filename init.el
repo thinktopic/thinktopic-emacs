@@ -47,6 +47,7 @@
 (vendor 'rainbow-delimiters)
 (vendor 'powerline)
 (vendor 'clj-refactor)
+(vendor 'git-gutter+)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
@@ -76,6 +77,7 @@
 (load "rally/refactor")
 (load "rally/mouse")
 (load "rally/webdev")
+(load "rally/git-gutter")
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
