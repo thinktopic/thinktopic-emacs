@@ -1,4 +1,10 @@
 (xterm-mouse-mode 1)
 
-(global-set-key (kbd "<mouse-5>") 'scroll-up-line)
-(global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+(global-set-key (kbd "<mouse-5>") (lambda () 
+                                    (interactive) 
+                                    (dotimes (i 2)
+                                      (scroll-up-line))))
+(global-set-key (kbd "<mouse-4>") (lambda () 
+                                    (interactive) 
+                                    (dotimes (i 2)
+                                      (scroll-down-line))))
