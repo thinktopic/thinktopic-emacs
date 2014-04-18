@@ -48,6 +48,7 @@
 (vendor 'powerline)
 (vendor 'clj-refactor)
 (vendor 'git-gutter+)
+(vendor 'elixir-mode)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
