@@ -1,7 +1,6 @@
-{:user
+o{:user
  {:plugins [[lein-ancient "0.5.5"]
             [jonase/eastwood "0.1.1"]
-            [rally-service/lein-template "0.1.0-SNAPSHOT"]
             [cider/cider-nrepl "0.7.0-SNAPSHOT"]]}
  :repl
  {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
