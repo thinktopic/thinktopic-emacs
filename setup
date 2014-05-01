@@ -16,6 +16,7 @@ brew install ack
 brew install reattach-to-user-namespace
 brew install python
 brew install wget
+brew install leiningen
 pip install https://github.com/Lokaltog/powerline/tarball/develop
 
 cp fonts/Inconsolata-dz\ for\ Powerline.otf ~/Library/Fonts
