@@ -32,12 +32,4 @@
 
 (define-key clojure-mode-map (kbd "C-c M-t") 'cider-namespace-refresh)
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; The following bits fix up some stuff that is busted in cider
-;;; because it's very much in-development.
-
-;;; This one is fixed in HEAD of clojure-mode, as of 2013-11-16, but
-;;; not yet deployed to melpa:
-(defun nrepl-emit-interactive-output (value)
-  (cider-emit-interactive-output value))
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
