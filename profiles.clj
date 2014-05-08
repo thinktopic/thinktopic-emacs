@@ -6,7 +6,8 @@
  {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                  [im.chit/vinyasa "0.1.8"]
                  [spyscope "0.1.4"]
-                 [blackwater "0.0.9"]]
+                 ;[blackwater "0.0.9"]
+                 [clj-time "0.6.0"]]
   :repl-options {:nrepl-middleware
                  [cider.nrepl.middleware.classpath/wrap-classpath
                   cider.nrepl.middleware.complete/wrap-complete
@@ -16,9 +17,10 @@
   :injections [(require 'vinyasa.inject)
                (require 'spyscope.core)
                (require 'alex-and-georges.debug-repl)
-               (require 'black.water.jdbc)
+               ;(require 'black.water.jdbc)
                (vinyasa.inject/inject 'clojure.core '>
                                       '[[clojure.repl doc source]
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
-                                        [black.water.jdbc decorate-cjj!]])]}}
+                                        ;[black.water.jdbc decorate-cjj!]
+                                        ])]}}
