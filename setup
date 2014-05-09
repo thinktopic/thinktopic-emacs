@@ -3,6 +3,9 @@
 rm ~/.lein/profiles.clj
 ln -s `pwd`/profiles.clj ~/.lein/profiles.clj
 
+rm ~/.lein/user.clj
+ln -s `pwd`/user.clj ~/.lein/user.clj
+
 rm ~/.tmux.conf
 ln -s `pwd`/.tmux.conf ~/.tmux.conf
 

@@ -14,7 +14,8 @@
                   cider.nrepl.middleware.info/wrap-info
                   cider.nrepl.middleware.inspect/wrap-inspect
                   cider.nrepl.middleware.stacktrace/wrap-stacktrace]}
-  :injections [(require 'vinyasa.inject)
+  :injections [(load-file (.getAbsolutePath (clojure.java.io/file (System/getenv "HOME") ".lein/user.clj")))
+               (require 'vinyasa.inject)
                (require 'spyscope.core)
                (require 'alex-and-georges.debug-repl)
                ;(require 'black.water.jdbc)
@@ -23,4 +24,5 @@
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
                                         ;[black.water.jdbc decorate-cjj!]
+                                        [user run-test]
                                         ])]}}
