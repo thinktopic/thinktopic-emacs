@@ -5,11 +5,11 @@
     (setq ring-bell-function '(lambda () nil)))
 
 ;; gui stuff
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-(set-fringe-style 0)
-(global-hl-line-mode)
+(if (functionp 'tool-bar-mode) (tool-bar-mode -1))
+(if (functionp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (functionp 'menu-bar-mode) (menu-bar-mode -1))
+(if (functionp 'set-fringe-style) (set-fringe-style 0))
+(if (functionp 'global-hl-line-mode) (global-hl-line-mode))
 
 ;; The default frame title in emacs is not very useful
 (when window-system
