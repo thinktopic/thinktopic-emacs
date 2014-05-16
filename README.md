@@ -22,6 +22,14 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
 * `cd` into the clone of this repository and run `setup`.
 
+### Can I install emacs using homebrew instead?
+
+Yes, but the default emacs recipe does not include some os x specific features by default.  This will cause some init scripts to fail.  If you want to use homebrew use the following:
+
+```bash
+brew install emacs --cocoa --srbg
+```
+
 ## OK, Now what? How do I use Emacs?
 It does take some work to become an emacs master, but with just a few keyboard shortcuts you can get started.
 
