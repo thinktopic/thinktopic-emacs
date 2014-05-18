@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if  [[ "$OSTYPE" != "darwin"* ]]; then
+    echo "This setup is designed for OS X only. Patches welcome."
+    exit 1
+fi
+
+if ! which brew; then 
+    echo "Homebrew is not installed.  Please install that first."
+    echo "http://brew.sh"
+    exit 1
+fi
+
 brew install tmux
 brew install ack
 brew install reattach-to-user-namespace
@@ -8,38 +19,92 @@ brew install wget
 brew install leiningen
 pip install https://github.com/Lokaltog/powerline/tarball/develop
 
+# NOTE: by default homebrew does not compile emacs with os x
+# specific options, the standard emacs is missing the following:
+# toolbar-mode are not functions and will error during init
+# sqlplus mode uses an image format that is not supported
+# ctrl-arrow keys do not work properly
+
+# This does appear to work:
+# brew install emacs --cocoa --srbg
+# However, if emacs is already installed brew will not re-install
+# it and its not easy to determine if it was installed correctly
+# whereas it is easy to determine if emacsformacosx is already
+# installed correctly.
+if [ ! -d /Applications/Emacs.app ]; then
+    wget http://emacsformacosx.com/emacs-builds/Emacs-24.3-universal-10.6.8.dmg    
+    hdiutil mount -noautoopen -mountpoint Installer Emacs-24.3-universal-10.6.8.dmg
+    cp -r Installer/Emacs.app /Applications/
+    hdiutil unmount Installer
+
+    echo "" >> ~/.bashrc
+    echo "export TERM=xterm-256color" >> ~/.bashrc
+    echo "alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'" >> ~/.bashrc
+
+    echo "" >> ~/.zshrc
+    echo "export TERM=xterm-256color" >> ~/.zshrc
+    echo "alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'" >> ~/.zshrc
+fi 
 
 cp fonts/Inconsolata-dz\ for\ Powerline.otf ~/Library/Fonts
 
-# Cannot change iTerm2 settins while it is running
-# https://code.google.com/p/iterm2/issues/detail?id=1872
-if launchctl list | grep com.googlecode.iterm2; then
-  echo "Changes to iTerm2 preferences will be overwritten when iTerm2 is closed."
-  echo "Close iTerm2 and rerun this script from the standard terminal"
-  open /Applications/Utilities/Terminal.app
-  exit 1
+# if special font has been selected assume preferences have already been installed
+if ! defaults read com.googlecode.iterm2 | grep InconsolataForPowerline-dz; then
+    # Cannot change iTerm2 settins while it is running
+    # https://code.google.com/p/iterm2/issues/detail?id=1872
+    if launchctl list | grep com.googlecode.iterm2; then
+	echo "Changes to iTerm2 preferences will be overwritten when iTerm2 is closed."
+	echo "Close iTerm2 and rerun this script from the standard terminal"
+	open /Applications/Utilities/Terminal.app
+	exit 1
+    fi
+
+    cp pristine/com.googlecode.iterm2.plist ~/Library/Preferences/.
+    # OS X 10.9 caches settings until logout, force it to reload
+    defaults read com.googlecode.iterm2 > /dev/null
+
+    # TODO: Could use PlistBuddy to be more explicit about which settings get changed
+    # /usr/libexec/PlistBuddy -c "Set :\"New Bookmarks\":0:\"Non Ascii Font\" InconsolataForPowerline-dz 12" ~/Library/Preferences/com.googlecode.iterm2.plist >/dev/null
+    # /usr/libexec/PlistBuddy -c "Set :\"New Bookmarks\":0:\"Normal Font\" InconsolataForPowerline-dz 12" ~/Library/Preferences/com.googlecode.iterm2.plist >/dev/null
 fi
 
-cp pristine/com.googlecode.iterm2.plist ~/Library/Preferences/.
-# OS X 10.9 caches settings until logout, force it to reload
-defaults read com.googlecode.iterm2 > /dev/null
+mkdir -p ~/.lein
+if [ ! -L ~/.lein/profiles.clj ]; then
+    mkdir -p bak
+    mv ~/.lien/profiles.clj bak
+    ln -s `pwd`/profiles.clj ~/.lein/profiles.clj
+fi
 
-# TODO: Could use PlistBuddy to be more explicit about which settings get changed
-# /usr/libexec/PlistBuddy -c "Set :\"New Bookmarks\":0:\"Non Ascii Font\" InconsolataForPowerline-dz 12" ~/Library/Preferences/com.googlecode.iterm2.plist >/dev/null
-# /usr/libexec/PlistBuddy -c "Set :\"New Bookmarks\":0:\"Normal Font\" InconsolataForPowerline-dz 12" ~/Library/Preferences/com.googlecode.iterm2.plist >/dev/null
+if [ ! -L ~/.lein/user.clj ]; then
+    mkdir -p bak
+    mv ~/.lein/user.clj bak
+    ln -s `pwd`/user.clj ~/.lein/user.clj
+fi
 
-rm ~/.lein/profiles.clj
-ln -s `pwd`/profiles.clj ~/.lein/profiles.clj
+if [ ! -L ~/.tmux.conf ]; then
+    mkdir -p bak
+    mv ~/.tmux.conf bak
+    ln -s `pwd`/.tmux.conf ~/.tmux.conf
+fi
 
-rm ~/.lein/user.clj
-ln -s `pwd`/user.clj ~/.lein/user.clj
+if [ ! -L ~/.emacs.d ]; then
+    mkdir -p bak
+    mv ~/.emacs.d bak
+    ln -s `pwd`/ ~/.emacs.d
+fi
 
-rm ~/.tmux.conf
-ln -s `pwd`/.tmux.conf ~/.tmux.conf
+if [ ! -L ~/.ackrc ]; then
+    mkdir -p bak
+    mv ~/.ackrc bak
+    ln -s `pwd`/.ackrc ~/.ackrc
+fi
 
-ln -s `pwd`/ ~/.emacs.d
-
-ln -s `pwd`/.ackrc ~/.ackrc
+mkdir -p ~/bin
+if [ ! -L ~/bin/muxify ]; then
+    mkdir -p bak
+    mv ~/bin/muxify bak
+    ln -s `pwd`/muxify ~/bin/muxify
+fi
 
 if [ ! -f `pwd`/user.init.el ];
 then

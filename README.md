@@ -9,26 +9,9 @@ We think for a couple of reasons.
 2. Using Emacs allows us to [remote pair](README.md#remote-pairing) without having the "lag" of a VNC session.
 
 ## How do I get started?
-* First install emacs.  Download a .dmg from http://emacsformacosx.com/  
-* Clone this repo.  
-* Set up shell
-  * If you are using Rally's oh-my-zsh, do a pull and source `.zshrc`.
-  * If not, make sure you add the following to your shell.
-
-```bash
-export TERM=xterm-256color
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-```
-
+* Clone this repo.
 * `cd` into the clone of this repository and run `setup`.
-
-### Can I install emacs using homebrew instead?
-
-Yes, but the default emacs recipe does not include some os x specific features by default.  This will cause some init scripts to fail.  If you want to use homebrew use the following:
-
-```bash
-brew install emacs --cocoa --srbg
-```
+* `source ~/.zshrc` or restart your terminal session.
 
 ## OK, Now what? How do I use Emacs?
 It does take some work to become an emacs master, but with just a few keyboard shortcuts you can get started.
