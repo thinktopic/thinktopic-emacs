@@ -1,0 +1,12 @@
+#!/bin/bash
+
+apt-get install emacs24
+apt-get install tmux
+apt-get install ack
+apt-get install python
+apt-get install wget
+apt-get install leiningen
+apt-get install python-setuptools
+
+easy_install httpie
+pip install https://github.com/Lokaltog/powerline/tarball/develop
