@@ -22,7 +22,12 @@ fi
 if [ ! -L ~/.tmux.conf ]; then
     mkdir -p bak
     mv ~/.tmux.conf bak
-    ln -s `pwd`/.tmux.conf ~/.tmux.conf
+
+    if  [[ "$OSTYPE" != "darwin"* ]]; then
+        ln -s `pwd`/tmux.conf.linux ~/.tmux.conf
+    else
+        ln -s `pwd`/.tmux.conf.osx ~/.tmux.conf
+    fi
 fi
 
 if [ ! -L ~/.emacs.d ]; then

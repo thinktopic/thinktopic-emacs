@@ -6,6 +6,8 @@ apt-get install ack
 apt-get install python
 apt-get install wget
 apt-get install python-setuptools
+apt-get install xsel
+apt-get install python-pip
 
 easy_install httpie
 pip install https://github.com/Lokaltog/powerline/tarball/develop

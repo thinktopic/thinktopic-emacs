@@ -1,0 +1,19 @@
+set-window-option -g xterm-keys on
+set-option -g prefix `
+unbind C-b
+bind-key ` send-prefix
+
+set -g mode-mouse on
+
+set -g mouse-select-window on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g xterm-keys on
+set-window-option -g xterm-keys on
+set-option -g mouse-utf8 on
+set-option -g default-terminal screen-256color
+
+bind y run "tmux save-buffer - | xsel --clipboard --input"
+bind p run "tmux paste-buffer"
+
+source /usr/local/lib/python2.7/dist`1-packages/powerline/bindings/tmux/powerline.conf
