@@ -1,13 +1,13 @@
 #!/bin/bash
 
-apt-get install emacs24
-apt-get install tmux
-apt-get install ack
-apt-get install python
-apt-get install wget
-apt-get install python-setuptools
-apt-get install xsel
-apt-get install python-pip
+apt-get install -y emacs24
+apt-get install -y tmux
+apt-get install -y ack
+apt-get install -y python
+apt-get install -y wget
+apt-get install -y python-setuptools
+apt-get install -y xsel
+apt-get install -y python-pip
 
 easy_install httpie
 pip install https://github.com/Lokaltog/powerline/tarball/develop
