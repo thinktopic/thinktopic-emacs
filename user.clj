@@ -1,4 +1,5 @@
 (ns user
+  (:require [clojure.pprint :as pprint])
   (:require [clojure.test :as test]))
 
 (defmacro run-test
@@ -8,3 +9,7 @@
          each-fixture-fn# (test/join-fixtures (:clojure.test/each-fixtures (meta ~*ns*)))]
      (once-fixture-fn#
       #(each-fixture-fn# ~test-fn))))
+
+(defn spy [m]
+  (pprint/pprint m)
+  m)

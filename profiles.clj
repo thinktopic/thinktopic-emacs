@@ -7,7 +7,8 @@
                  [im.chit/vinyasa "0.1.8"]
                  [spyscope "0.1.4"]
                  ;[blackwater "0.0.9"]
-                 [clj-time "0.6.0"]]
+                 [clj-time "0.6.0"]
+                 [print-foo "0.5.0"]]
   :repl-options {:nrepl-middleware
                  [cider.nrepl.middleware.classpath/wrap-classpath
                   cider.nrepl.middleware.complete/wrap-complete
@@ -18,11 +19,12 @@
                (require 'vinyasa.inject)
                (require 'spyscope.core)
                (require 'alex-and-georges.debug-repl)
+               (use 'print.foo)
                ;(require 'black.water.jdbc)
                (vinyasa.inject/inject 'clojure.core '>
                                       '[[clojure.repl doc source]
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
                                         ;[black.water.jdbc decorate-cjj!]
-                                        [user run-test]
+                                        [user run-test spy]
                                         ])]}}

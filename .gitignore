@@ -15,3 +15,5 @@ custom.el
 nrepl-history
 places
 projectile-bookmarks.eld
+/bak/
+/*.dmg
