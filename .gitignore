@@ -17,3 +17,6 @@ places
 projectile-bookmarks.eld
 /bak/
 /*.dmg
+id_rsa
+id_rsa.pub
+known_hosts

@@ -1,0 +1,171 @@
+#!/usr/bin/env ruby
+
+require 'docker'
+require 'json'
+require 'thor'
+
+class Spoon < Thor
+
+  option :debug, :type => :boolean, :default => true
+
+  desc "connect NAME", "Connect to pairing instance named NAME"
+  def connect(name)
+    docker_url
+    instance_connect("#{name}")
+  end
+
+  desc "list", "List instances"
+  def list
+    docker_url
+    instance_list
+  end
+
+  desc "destroy NAME", "Destroy pairing instance NAME"
+  def destroy(name)
+    docker_url
+    instance_destroy("#{name}")
+  end
+
+  desc "build", "Build docker image"
+  def build
+    docker_url
+    `cp ~/.ssh/* ssh`
+    image_build
+  end
+
+  private
+
+  def image_build
+    build_opts = { 't' => 'rally-emacs', 'rm' => true }
+    Docker::Image.build_from_dir('.', build_opts) do |chunk|
+      print_docker_response(chunk)
+    end
+  end
+
+  def print_parsed_response(response)
+    case response
+    when Hash
+      response.each do |key, value|
+        case key
+        when 'stream'
+          puts value
+        else
+          puts "#{key}: #{value}"
+        end
+      end
+    when Array
+      response.each do |hash|
+        print_parsed_response(hash)
+      end
+    end
+  end
+
+  def print_docker_response(json)
+    print_parsed_response(JSON.parse(json))
+  end
+
+  def instance_connect(name)
+    instance_create(name) unless instance_exists?(name)
+    instance_ssh(name)
+  end
+
+  def instance_list
+    container_list = Docker::Container.all
+    container_list.each do |container|
+      name = container.info["Names"].first.to_s
+      puts name[1..-1]
+    end
+  end
+
+  def instance_destroy(name)
+    puts "destroy: #{name}"
+    container = get_container(name)
+
+    if container
+      puts "Destroying #{name}"
+      begin
+        container.kill
+      rescue
+        puts "Failed to kill container #{container.id}"
+      end
+
+      container.wait(10)
+
+      begin
+        container.delete(:force => true)
+      rescue
+        puts "Failed to remove container #{container.id}"
+      end
+      puts "Done!"
+    else
+      puts "No container named: #{name}"
+    end
+  end
+
+  def instance_exists?(name)
+    get_container(name)
+  end
+
+  def instance_ssh(name)
+    container = get_container(name)
+    if container
+      ssh_port = get_port('22', container)
+      puts "Waiting for #{name}:#{ssh_port}..." until host_available?("bld-docker-02", ssh_port)
+      exec("ssh -o StrictHostKeyChecking=no -p #{ssh_port} pairing@bld-docker-02")
+    else
+      puts "No container named: #{container.inspect}"
+    end
+  end
+
+  def get_container(name)
+    container_list = Docker::Container.all
+
+    container_list.each do |container|
+      if container.info["Names"].first.to_s == "/#{name}"
+        return container
+      else
+        return false
+      end
+    end
+    return nil
+  end
+
+  def instance_create(name)
+    container = Docker::Container.create({
+      'Image' => 'rally-emacs',
+      'name' => name,
+      'Entrypoint' => 'runit'
+    })
+    container = container.start({ 'PublishAllPorts' => true })
+  end
+
+  def host_available?(hostname, port)
+    socket = TCPSocket.new(hostname, port)
+    IO.select([socket], nil, nil, 5)
+  rescue SocketError, Errno::ECONNREFUSED,
+    Errno::EHOSTUNREACH, Errno::ENETUNREACH, IOError
+    sleep(0.25)
+    false
+  rescue Errno::EPERM, Errno::ETIMEDOUT
+    false
+  ensure
+    socket && socket.close
+  end
+
+  def docker_url
+    Docker.url = "tcp://bld-docker-02:4243"
+  end
+
+  def get_port(port, container)
+    container.json['NetworkSettings']['Ports']["#{port}/tcp"].first['HostPort']
+  end
+
+  def D(message)
+    if options[:debug]
+      puts "D: #{message}"
+    end
+  end
+
+end
+
+Spoon.start(ARGV)
