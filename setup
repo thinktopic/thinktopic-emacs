@@ -62,6 +62,15 @@ if [ ! -L ~/bin/muxify ]; then
     ln -s `pwd`/muxify ~/bin/muxify
 fi
 
+if [ ! -L ~/bin/spoon ]; then
+    if [ -f ~/bin/spoon ]; then
+        mkdir -p bak
+        mv ~/bin/spoon bak
+    fi
+    ln -s `pwd`/docker/spoon ~/bin/spoon
+fi
+
+
 if [ ! -f `pwd`/user.init.el ];
 then
     cp `pwd`/pristine/user.init.el.default `pwd`/user.init.el
