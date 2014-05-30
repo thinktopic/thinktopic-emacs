@@ -2,7 +2,16 @@ FROM ubuntu:14.04
 
 RUN apt-get update
 RUN apt-get install -y git emacs24 tmux ack-grep python wget python-setuptools xsel \
-    python-pip zsh openjdk-7-jre curl build-essential runit openssh-server
+    python-pip zsh curl build-essential runit openssh-server ruby \
+    software-properties-common python-software-properties
+
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get update
+
+RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
+
+RUN apt-get -y install oracle-java8-installer
 
 RUN easy_install httpie
 RUN pip install https://github.com/Lokaltog/powerline/tarball/develop
@@ -66,6 +75,9 @@ RUN su - pairing -c "git clone git@github.com:RallySoftware/cletus.git ~/project
 RUN su - pairing -c "git clone git@github.com:RallySoftware/birdseed.git ~/projects/birdseed"
 RUN su - pairing -c "git clone git@github.com:RallySoftware/bag-boy.git ~/projects/bag-boy"
 RUN su - pairing -c "git clone git@github.com:RallySoftware/marshmallow.git ~/projects/marshmallow"
+
+RUN chown root:root /usr/bin/sudo
+RUN chmod 4755 /usr/bin/sudo
 
 EXPOSE 22
 
