@@ -11,7 +11,7 @@ class Spoon < Thor
   desc "connect NAME", "Connect to pairing instance named NAME"
   def connect(name)
     docker_url
-    instance_connect("#{name}")
+    instance_connect(name)
   end
 
   desc "list", "List instances"
@@ -23,7 +23,7 @@ class Spoon < Thor
   desc "destroy NAME", "Destroy pairing instance NAME"
   def destroy(name)
     docker_url
-    instance_destroy("#{name}")
+    instance_destroy(name)
   end
 
   desc "build", "Build docker image"
@@ -123,8 +123,6 @@ class Spoon < Thor
     container_list.each do |container|
       if container.info["Names"].first.to_s == "/#{name}"
         return container
-      else
-        return false
       end
     end
     return nil
