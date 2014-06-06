@@ -125,7 +125,7 @@ class Spoon < Thor
       ssh_command = "\"#{command}\"" if not command.empty?
       ssh_port = get_port('22', container)
       puts "Waiting for #{name}:#{ssh_port}..." until host_available?("bld-docker-02", ssh_port)
-      exec("ssh -o StrictHostKeyChecking=no -p #{ssh_port} pairing@bld-docker-02 #{ssh_command}")
+      exec("ssh -t -o StrictHostKeyChecking=no -p #{ssh_port} pairing@bld-docker-02 #{ssh_command}")
     else
       puts "No container named: #{container.inspect}"
     end
