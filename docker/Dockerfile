@@ -69,12 +69,9 @@ RUN su - pairing -c "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh
 RUN su - pairing -c "git clone git@github.com:RallySoftware/oh-my-zsh-custom.git ~/.oh-my-zsh-custom"
 RUN su - pairing -c "cp ~/.oh-my-zsh-custom/templates/zshrc.zsh-template ~/.zshrc"
 
-RUN su - pairing -c "git clone git@github.com:RallySoftware/zuul.git ~/projects/zuul"
-RUN su - pairing -c "git clone git@github.com:RallySoftware/pigeon.git ~/projects/pigeon"
-RUN su - pairing -c "git clone git@github.com:RallySoftware/cletus.git ~/projects/cletus"
-RUN su - pairing -c "git clone git@github.com:RallySoftware/birdseed.git ~/projects/birdseed"
-RUN su - pairing -c "git clone git@github.com:RallySoftware/bag-boy.git ~/projects/bag-boy"
-RUN su - pairing -c "git clone git@github.com:RallySoftware/marshmallow.git ~/projects/marshmallow"
+RUN git clone https://github.com/RallySoftware/work-on /usr/local/lib/work-on
+RUN ln -s /usr/local/lib/work-on/work-on /usr/local/bin
+RUN ln -s /usr/local/lib/work-on/pair-on /usr/local/bin
 
 RUN chown root:root /usr/bin/sudo
 RUN chmod 4755 /usr/bin/sudo
