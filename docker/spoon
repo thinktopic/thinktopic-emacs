@@ -73,7 +73,12 @@ class Spoon < Thor
   end
 
   def instance_connect(name, command='')
-    instance_create(name) unless instance_exists?(name)
+    if not instance_exists? name
+      puts "The `#{name}` container doesn't exist, creating..."
+      instance_create(name) 
+    end
+
+    puts "Connecting to `#{name}`"
     instance_ssh(name, command)
   end
 
