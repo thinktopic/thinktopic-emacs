@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 RUN apt-get update
-RUN apt-get install -y git emacs24 tmux ack-grep python wget python-setuptools xsel \
+RUN apt-get install -y zip git emacs24 tmux ack-grep python wget python-setuptools xsel \
     python-pip zsh curl build-essential runit openssh-server ruby \
     software-properties-common python-software-properties
 
@@ -68,6 +68,8 @@ RUN su - pairing -c "lein"
 RUN su - pairing -c "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
 RUN su - pairing -c "git clone git@github.com:RallySoftware/oh-my-zsh-custom.git ~/.oh-my-zsh-custom"
 RUN su - pairing -c "cp ~/.oh-my-zsh-custom/templates/zshrc.zsh-template ~/.zshrc"
+RUN su - pairing -c "echo -e 'PATH=$PATH:$HOME/bin\n' >> ~/.zshrc"
+
 
 RUN git clone https://github.com/RallySoftware/work-on /usr/local/lib/work-on
 RUN ln -s /usr/local/lib/work-on/work-on /usr/local/bin
