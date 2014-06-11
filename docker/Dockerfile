@@ -1,9 +1,26 @@
 FROM ubuntu:14.04
 
-RUN apt-get update
-RUN apt-get install -y zip git emacs24 tmux ack-grep python wget python-setuptools xsel \
-    python-pip zsh curl build-essential runit openssh-server ruby \
-    software-properties-common python-software-properties
+RUN apt-get update #dude
+RUN apt-get install -y zip 
+RUN apt-get install -y openssl
+RUN apt-get install -y git 
+RUN apt-get install -y emacs24 
+RUN apt-get install -y tmux 
+RUN apt-get install -y ack-grep 
+RUN apt-get install -y python 
+RUN apt-get install -y wget 
+RUN apt-get install -y python-setuptools 
+RUN apt-get install -y xsel 
+RUN apt-get install -y python-pip 
+RUN apt-get install -y zsh 
+RUN apt-get install -y curl 
+RUN apt-get install -y build-essential 
+RUN apt-get install -y runit 
+RUN apt-get install -y openssh-server 
+RUN apt-get install -y ruby 
+RUN apt-get install -y software-properties-common 
+RUN apt-get install -y python-software-properties
+RUN apt-get install -y tree
 
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
@@ -11,7 +28,7 @@ RUN apt-get update
 RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
 
-RUN apt-get -y install oracle-java8-installer
+RUN apt-get -y install oracle-java7-installer
 
 RUN easy_install httpie
 RUN pip install https://github.com/Lokaltog/powerline/tarball/develop
@@ -70,6 +87,11 @@ RUN su - pairing -c "git clone git@github.com:RallySoftware/oh-my-zsh-custom.git
 RUN su - pairing -c "cp ~/.oh-my-zsh-custom/templates/zshrc.zsh-template ~/.zshrc"
 RUN su - pairing -c "echo -e 'PATH=$PATH:$HOME/bin\n' >> ~/.zshrc"
 
+RUN locale-gen en_US.UTF-8
+RUN su - pairing -c "echo -e 'export LANGUAGE=en_US.UTF-8' >> ~/.zshrc"
+RUN su - pairing -c "echo -e 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc"
+RUN su - pairing -c "echo -e 'export LANG=en_US.UTF-8' >> ~/.zshrc"
+RUN su - pairing -c "echo -e 'export LC_TYPE=en_US.UTF-' >> ~/.zshrc"
 
 RUN git clone https://github.com/RallySoftware/work-on /usr/local/lib/work-on
 RUN ln -s /usr/local/lib/work-on/work-on /usr/local/bin
