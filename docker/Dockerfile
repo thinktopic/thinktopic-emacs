@@ -43,6 +43,15 @@ RUN http -d https://raw.github.com/technomancy/leiningen/stable/bin/lein > /lein
 RUN mv /lein.txt /usr/local/bin/lein
 RUN chmod +x /usr/local/bin/lein
 
+RUN mkdir /home/pairing/src
+WORKDIR /home/pairing/src
+RUN git clone git://github.com/bmc/daemonize
+WORKDIR /home/pairing/src/daemonize
+RUN ./configure
+RUN make
+RUN make install
+WORKDIR /
+
 RUN useradd -s /bin/zsh -m -d /home/pairing -g root pairing
 RUN echo "pairing:just4luck!" | chpasswd
 RUN echo "pairing        ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
