@@ -26,7 +26,7 @@
                                       '[[clojure.repl doc source]
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
-                                        [clojure.tools.names.repl refresh]
+                                        ;[clojure.tools.names.repl refresh]
                                         ;[black.water.jdbc decorate-cjj!]
                                         [user run-test spy]
                                         ])]}}
