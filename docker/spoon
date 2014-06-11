@@ -40,7 +40,11 @@ class Spoon < Thor
   end
 
   def remove_prefix(name)
-    name[7..-1]
+    if name.start_with? "/"
+      name[7..-1]
+    else
+      name[6..-1]
+    end
   end
 
   def image_build
@@ -86,7 +90,9 @@ class Spoon < Thor
     container_list = Docker::Container.all
     container_list.each do |container|
       name = container.info["Names"].first.to_s
-      puts remove_prefix(name)
+      if name.start_with? "/spoon-"
+        puts remove_prefix(name)
+      end
     end
   end
 
@@ -146,7 +152,8 @@ class Spoon < Thor
     container = Docker::Container.create({
       'Image' => 'rally-emacs',
       'name' => name,
-      'Entrypoint' => 'runit'
+      'Entrypoint' => 'runit',
+      'Hostname' => remove_prefix(name)
     })
     container = container.start({ 'PublishAllPorts' => true })
   end

@@ -34,7 +34,7 @@ RUN easy_install httpie
 RUN pip install https://github.com/Lokaltog/powerline/tarball/develop
 
 RUN mkdir -p /etc/service
-ADD ssh /etc/service/ssh
+ADD resources /etc/service/ssh
 ADD runit /etc/runit
 
 RUN mkdir -p /var/run/sshd
@@ -47,11 +47,11 @@ RUN useradd -s /bin/zsh -m -d /home/pairing -g root pairing
 RUN echo "pairing:just4luck!" | chpasswd
 RUN echo "pairing        ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-ADD ssh/ /ssh
+ADD resources/ /resources
 
 RUN mkdir /home/pairing/.ssh
-RUN mv /ssh/id_rsa /home/pairing/.ssh
-RUN mv /ssh/id_rsa.pub /home/pairing/.ssh
+RUN mv /resources/id_rsa /home/pairing/.ssh
+RUN mv /resources/id_rsa.pub /home/pairing/.ssh
 
 RUN mkdir /home/pairing/projects
 RUN mkdir /home/pairing/projects/rally-emacs
@@ -77,6 +77,7 @@ RUN vendor/gitutils/submodule-hooks/install.sh /home/pairing/projects/rally-emac
 
 WORKDIR /
 
+RUN cp /resources/zshrc.default /home/pairing/.zshrc #dude
 RUN chown -R pairing /home/pairing/
 
 RUN su - pairing -c "echo -e 'Host github.com\n\tStrictHostKeyChecking no\n' >> ~/.ssh/config"
@@ -84,14 +85,8 @@ RUN su - pairing -c "emacs -u pairing --batch --eval \"(print (symbol-value 'use
 RUN su - pairing -c "lein"
 RUN su - pairing -c "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
 RUN su - pairing -c "git clone git@github.com:RallySoftware/oh-my-zsh-custom.git ~/.oh-my-zsh-custom"
-RUN su - pairing -c "cp ~/.oh-my-zsh-custom/templates/zshrc.zsh-template ~/.zshrc"
-RUN su - pairing -c "echo -e 'PATH=$PATH:$HOME/bin\n' >> ~/.zshrc"
 
 RUN locale-gen en_US.UTF-8
-RUN su - pairing -c "echo -e 'export LANGUAGE=en_US.UTF-8' >> ~/.zshrc"
-RUN su - pairing -c "echo -e 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc"
-RUN su - pairing -c "echo -e 'export LANG=en_US.UTF-8' >> ~/.zshrc"
-RUN su - pairing -c "echo -e 'export LC_TYPE=en_US.UTF-' >> ~/.zshrc"
 
 RUN git clone https://github.com/RallySoftware/work-on /usr/local/lib/work-on
 RUN ln -s /usr/local/lib/work-on/work-on /usr/local/bin
