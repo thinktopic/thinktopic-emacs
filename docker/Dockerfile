@@ -17,10 +17,12 @@ RUN apt-get install -y curl
 RUN apt-get install -y build-essential 
 RUN apt-get install -y runit 
 RUN apt-get install -y openssh-server 
-RUN apt-get install -y ruby 
+RUN apt-get install -y ruby-dev 
 RUN apt-get install -y software-properties-common 
 RUN apt-get install -y python-software-properties
 RUN apt-get install -y tree
+RUN apt-get install -y libxml2-dev
+RUN apt-get install -y libxslt-dev
 
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
@@ -32,6 +34,8 @@ RUN apt-get -y install oracle-java7-installer
 
 RUN easy_install httpie
 RUN pip install https://github.com/Lokaltog/powerline/tarball/develop
+
+RUN gem install bundler
 
 RUN mkdir -p /etc/service
 ADD resources /etc/service/ssh
@@ -96,6 +100,8 @@ RUN su - pairing -c "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh
 RUN su - pairing -c "git clone git@github.com:RallySoftware/oh-my-zsh-custom.git ~/.oh-my-zsh-custom"
 
 RUN locale-gen en_US.UTF-8
+
+RUN ln -s /home/pairing/.oh-my-zshrc-custom/bin/pair /home/pairing/bin/pair
 
 RUN git clone https://github.com/RallySoftware/work-on /usr/local/lib/work-on
 RUN ln -s /usr/local/lib/work-on/work-on /usr/local/bin
