@@ -1,6 +1,6 @@
 {:user
  {:plugins [[lein-ancient "0.5.5"]
-            [jonase/eastwood "0.1.1"]
+            [jonase/eastwood "0.1.4"]
             [cider/cider-nrepl "0.7.0-SNAPSHOT"]]}
  :repl
  {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
@@ -26,7 +26,7 @@
                                       '[[clojure.repl doc source]
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
-                                        [clojure.tools.names.repl refresh]
+                                        [clojure.tools.namespace.repl refresh]
                                         ;[black.water.jdbc decorate-cjj!]
                                         [user run-test spy]
                                         ])]}}
