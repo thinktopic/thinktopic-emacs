@@ -18,9 +18,10 @@ plugins=(alm appsdk bundler git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin://bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/.oh-my-zsh-custom/bin
 
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
+export EDITOR=/usr/bin/emacs

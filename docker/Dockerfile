@@ -47,6 +47,10 @@ RUN http -d https://raw.github.com/technomancy/leiningen/stable/bin/lein > /lein
 RUN mv /lein.txt /usr/local/bin/lein
 RUN chmod +x /usr/local/bin/lein
 
+RUN useradd -s /bin/zsh -m -d /home/pairing -g root pairing
+RUN echo "pairing:just4luck!" | chpasswd
+RUN echo "pairing        ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 RUN mkdir /home/pairing/src
 WORKDIR /home/pairing/src
 RUN git clone git://github.com/bmc/daemonize
@@ -55,10 +59,6 @@ RUN ./configure
 RUN make
 RUN make install
 WORKDIR /
-
-RUN useradd -s /bin/zsh -m -d /home/pairing -g root pairing
-RUN echo "pairing:just4luck!" | chpasswd
-RUN echo "pairing        ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD resources/ /resources
 
@@ -90,7 +90,7 @@ RUN vendor/gitutils/submodule-hooks/install.sh /home/pairing/projects/rally-emac
 
 WORKDIR /
 
-RUN cp /resources/zshrc.default /home/pairing/.zshrc #dude
+RUN cp /resources/zshrc.default /home/pairing/.zshrc #dudest
 RUN chown -R pairing /home/pairing/
 
 RUN su - pairing -c "echo -e 'Host github.com\n\tStrictHostKeyChecking no\n' >> ~/.ssh/config"
