@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update #dude
+RUN apt-get update #dudecool
 RUN apt-get install -y zip 
 RUN apt-get install -y openssl
 RUN apt-get install -y git 
@@ -23,6 +23,7 @@ RUN apt-get install -y python-software-properties
 RUN apt-get install -y tree
 RUN apt-get install -y libxml2-dev
 RUN apt-get install -y libxslt-dev
+RUN apt-get install -y psmisc
 
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
