@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update #dudecool
+RUN apt-get update #dudecooler
 RUN apt-get install -y zip 
 RUN apt-get install -y openssl
 RUN apt-get install -y git 
@@ -59,7 +59,6 @@ WORKDIR /home/pairing/src/daemonize
 RUN ./configure
 RUN make
 RUN make install
-WORKDIR /
 
 ADD resources/ /resources
 
@@ -89,16 +88,17 @@ RUN git submodule update
 
 RUN vendor/gitutils/submodule-hooks/install.sh /home/pairing/projects/rally-emacs
 
-WORKDIR /
-
 RUN cp /resources/zshrc.default /home/pairing/.zshrc #dudest
 RUN chown -R pairing /home/pairing/
 
 RUN su - pairing -c "echo -e 'Host github.com\n\tStrictHostKeyChecking no\n' >> ~/.ssh/config"
-RUN su - pairing -c "emacs -u pairing --batch --eval \"(print (symbol-value 'user-init-file))\""
+RUN su - pairing -c "emacs -u pairing --batch --eval \"(print (symbol-value 'user-init-file))\" echo"
 RUN su - pairing -c "lein"
 RUN su - pairing -c "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
 RUN su - pairing -c "git clone git@github.com:RallySoftware/oh-my-zsh-custom.git ~/.oh-my-zsh-custom"
+
+RUN su - pairing -c "git clone git@github.com:RallySoftware/marshmallow.git ~/projects/marshmallow"
+RUN su - pairing -c "cd ~/projects/marshmallow ; lein deps"
 
 RUN locale-gen en_US.UTF-8
 
@@ -112,5 +112,9 @@ RUN chown root:root /usr/bin/sudo
 RUN chmod 4755 /usr/bin/sudo
 
 EXPOSE 22
+EXPOSE 3000
+EXPOSE 3100
+EXPOSE 3200
+EXPOSE 4200
 
 ENTRYPOINT "/usr/sbin/runit"
