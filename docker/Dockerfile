@@ -91,6 +91,7 @@ RUN vendor/gitutils/submodule-hooks/install.sh /home/pairing/projects/rally-emac
 RUN cp /resources/zshrc.default /home/pairing/.zshrc #dudest
 RUN chown -R pairing /home/pairing/
 
+RUN su - pairing -c "git config --global push.default simple"
 RUN su - pairing -c "echo -e 'Host github.com\n\tStrictHostKeyChecking no\n' >> ~/.ssh/config"
 RUN su - pairing -c "emacs -u pairing --batch --eval \"(print (symbol-value 'user-init-file))\" echo"
 RUN su - pairing -c "lein"
