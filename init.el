@@ -50,6 +50,7 @@
 (vendor 'git-gutter+)
 (vendor 'elixir-mode)
 (vendor 'dockerfile-mode)
+(vendor 'git-timemachine)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
