@@ -1,0 +1,5 @@
+options[:url] = "tcp://bld-docker-02:4243"
+options[:image] = 'rally-emacs:latest'
+options["pre-build-commands"] = [
+  ""
+]

@@ -48,6 +48,10 @@ the above keyboard shortcuts, you can find more information below.
 4. anyone you want to pair with can ssh to your computer then type `tmux attach`
 5. to disconnect from the tmux session (but leave it running) type `C-b d`
 
+## But wait, I can't live without my forked version of <obscure .el package>!
+
+You can put your own `.emacs` or `.init.el` in `~/.emacs.d/user.init.el`. This file will be loaded at the end of the default init file.
+
 ## Emacs Packages
 The following packages are installed the very first time you start emacs.
 
