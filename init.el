@@ -29,8 +29,6 @@
 (vendor 'align-cljlet)
 (vendor 'paredit)
 (vendor 'cider)
-(vendor 'auto-complete)
-(vendor 'ac-nrepl 'global-auto-complete-mode)
 (vendor 'jtags)
 (vendor 'scala-mode)
 (vendor 'projectile)
@@ -50,6 +48,7 @@
 (vendor 'git-gutter+)
 (vendor 'elixir-mode)
 (vendor 'dockerfile-mode)
+(vendor 'company)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
