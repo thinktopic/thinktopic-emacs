@@ -67,4 +67,5 @@
 (global-set-key (kbd "C-S-o")   'move-buffer-to-other-window)
 (global-set-key (kbd "C-x M-o") 'move-buffer-to-other-window)
 
-
+;; Binding for "just close the friggin' file!"
+(global-set-key (kbd "M-k") 'kill-this-buffer)
