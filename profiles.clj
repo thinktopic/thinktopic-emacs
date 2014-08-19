@@ -1,7 +1,7 @@
 {:user
  {:plugins [[lein-ancient "0.5.5"]
             [jonase/eastwood "0.1.4"]
-            [cider/cider-nrepl "0.8.0-SNAPSHOT"]]}
+            [cider/cider-nrepl "0.7.0"]]}
  :repl
  {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                  [org.clojure/tools.namespace "0.2.5"]
