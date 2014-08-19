@@ -25,10 +25,9 @@
 
 ;;; Web-mode is great for HTML with embedded JS and/or CSS
 (vendor 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(dolist (ext '("\\.html$" "\\.mustache$" "\\.handlebars$"))
+  (add-to-list 'auto-mode-alist (cons ext 'web-mode)))
 
-;;; Use web-mode for Mustache templates - it works.
-(add-to-list 'auto-mode-alist '("\\.mustache" . web-mode))
 
 ;;; yasnippet is hot
 (yas-global-mode +1)
