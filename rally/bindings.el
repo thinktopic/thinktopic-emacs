@@ -7,8 +7,9 @@
 (global-set-key (kbd "C-x C-k k") 'kill-this-buffer)
 
 (global-set-key (kbd "C-S-f")     'ack-and-a-half) ; doesn't work in terminal
-(global-set-key (kbd "C-x C-g")   'ack-and-a-half) ; think "g for grep"
+(global-set-key (kbd "C-x C-a")   'ack-and-a-half)
 (global-set-key (kbd "C-x M-g")   'ack-and-a-half-same)
+(global-set-key (kbd "C-x C-g")   'git-grep-dwim)
 
 (global-set-key (kbd "C-x M-d")   'dired-r)
 (global-set-key (kbd "<f8>")      'toggle-truncate-lines)
