@@ -25,7 +25,7 @@
 
 ;;; Web-mode is great for HTML with embedded JS and/or CSS
 (vendor 'web-mode)
-(dolist (ext '("\\.html$" "\\.mustache$" "\\.handlebars$"))
+(dolist (ext '("\\.html$" "\\.mustache$" "\\.handlebars$" "\\.jsx$"))
   (add-to-list 'auto-mode-alist (cons ext 'web-mode)))
 
 
