@@ -50,6 +50,7 @@
 (vendor 'dockerfile-mode)
 (vendor 'company)
 (vendor 'git-timemachine)
+(vendor 'highlight-symbol)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
