@@ -45,7 +45,11 @@
 ;;; hand, this will blow your little mind.
 (vendor 'emmet-mode)
 (define-key emmet-mode-keymap (kbd "C-j") nil)
-(define-key emmet-mode-keymap (kbd "C-c x") 'emmet-expand-line)
+(define-key emmet-mode-keymap (kbd "M-RET") 'emmet-expand-line)
+(custom-set-default 'emmet-preview-default nil)
+
+(dolist (hook '(web-mode-hook html-mode-hook))
+  (add-hook hook '(lambda () (emmet-mode 1))))
 
 ;;; Connect a js-repl to your web page, send JS to it, etc.
 (vendor 'skewer-mode)
