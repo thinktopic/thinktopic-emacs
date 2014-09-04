@@ -10,6 +10,3 @@
 [submodule "vendor/hideshow-org"]
 	path = vendor/hideshow-org
 	url = https://github.com/shanecelis/hideshow-org.git
-[submodule "vendor/cider"]
-	path = vendor/cider
-	url = https://github.com/clojure-emacs/cider
