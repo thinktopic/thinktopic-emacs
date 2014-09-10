@@ -52,6 +52,7 @@
 (vendor 'git-timemachine)
 (vendor 'highlight-symbol)
 (vendor 'indent-guide)
+(vendor 'outline-magic)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
@@ -82,6 +83,7 @@
 (load "rally/mouse")
 (load "rally/webdev")
 (load "rally/git-gutter")
+(load "rally/outline-mode")
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
