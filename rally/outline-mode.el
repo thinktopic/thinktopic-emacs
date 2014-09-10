@@ -2,7 +2,7 @@
 
 (add-hook 'clojure-mode-hook 'outline-minor-mode)
 
-(defun outline-cycle-super (&optional arg)
+(defun outline-cycle-clojure (&optional arg)
   "Visibility cycling for outline(-minor)-mode.
 
 - When point is at the beginning of the buffer, or when called with a
@@ -37,23 +37,6 @@
 
       (cond
        ((eq last-command 'outline-cycle-overview)
-        ;; We just created the overview - now do table of contents
-        ;; This can be slow in very large buffers, so indicate action
-        (message "CONTENTS...") 
-        (save-excursion
-          ;; Visit all headings and show their offspring
-          (goto-char (point-max))
-          (catch 'exit
-            (while (and (progn (condition-case nil
-                                   (outline-previous-visible-heading 1)
-                                 (error (goto-char (point-min))))
-                               t)
-                        (looking-at outline-regexp))
-              (show-branches)
-              (if (bobp) (throw 'exit nil))))
-          (message "CONTENTS...done"))
-        (setq this-command 'outline-cycle-toc))
-       ((eq last-command 'outline-cycle-toc)
         ;; We just showed the table of contents - now show everything
         (show-all)
         (message "SHOW ALL")
@@ -138,4 +121,4 @@
                                         ; - same level
  (global-set-key "\M-o" cm-map) ; Outline-minor-mode key map
 
-(global-set-key (kbd "<backtab>") 'outline-cycle-super)
+(global-set-key (kbd "<backtab>") 'outline-cycle-clojure)
