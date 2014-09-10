@@ -51,6 +51,7 @@
 (vendor 'company)
 (vendor 'git-timemachine)
 (vendor 'highlight-symbol)
+(vendor 'indent-guide)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
