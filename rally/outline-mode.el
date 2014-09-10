@@ -121,4 +121,4 @@
                                         ; - same level
  (global-set-key "\M-o" cm-map) ; Outline-minor-mode key map
 
-(global-set-key (kbd "<backtab>") 'outline-cycle-clojure)
+ (global-set-key (kbd "<backtab>") 'outline-cycle)
