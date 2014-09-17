@@ -30,7 +30,7 @@
 (vendor 'align-cljlet)
 (vendor 'paredit)
 (vendor 'cider)
-(vendor 'jtags)
+;;(vendor 'jtags)
 (vendor 'scala-mode)
 (vendor 'projectile)
 (vendor 'ack-and-a-half 'ack-and-a-half 'ack-and-a-half-same 'ack-and-a-half-find-file 'ack-and-a-half-find-file-same 'ack-and-a-half-interactive)
