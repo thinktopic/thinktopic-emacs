@@ -1,6 +1,10 @@
 set-window-option -g xterm-keys on
 set-option -g prefix `
 unbind C-b
+unbind C-h
+unbind C-j
+unbind C-k
+unbind C-l
 bind-key ` send-prefix
 
 set -g mode-mouse on
@@ -19,5 +23,33 @@ set -g pane-base-index 1
 
 bind y run "tmux save-buffer - | xsel --clipboard --input"
 bind p run "tmux paste-buffer"
+
+set -g set-titles on
+set -g set-titles-string '#S:#I.#P #W'
+
+set-option -g status-style "bg=black"
+set-option -g status-style "fg=cyan"
+
+set -g monitor-activity off
+set -g visual-activity on
+
+# Highlighting the active window in status bar (1.9
+setw -g window-status-current-style "bg=blue"
+setw -g window-status-current-style "fg=white"
+
+# Highlight active window on screen
+set-option -g pane-active-border-fg colour32 # light blue
+
+set-window-option -g other-pane-height 25
+set-window-option -g other-pane-width 80
+
+setw -g clock-mode-colour colour32
+setw -g clock-mode-style 24
+setw -g aggressive-resize on
+set -g base-index 1
+
+# More straight forward key bindings for splitting
+bind-key | split-window -h
+bind-key - split-window -v
 
 source /usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline.conf
