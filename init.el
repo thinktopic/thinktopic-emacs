@@ -24,12 +24,13 @@
 (vendor 'yaml-mode)
 (vendor 'haml-mode)
 (vendor 'inf-ruby)
+(vendor 'outline-magic)
 (vendor 'clojure-mode)
 (vendor 'clojure-test-mode)
 (vendor 'align-cljlet)
 (vendor 'paredit)
 (vendor 'cider)
-(vendor 'jtags)
+;;(vendor 'jtags)
 (vendor 'scala-mode)
 (vendor 'projectile)
 (vendor 'ack-and-a-half 'ack-and-a-half 'ack-and-a-half-same 'ack-and-a-half-find-file 'ack-and-a-half-find-file-same 'ack-and-a-half-interactive)
@@ -51,6 +52,8 @@
 (vendor 'company)
 (vendor 'git-timemachine)
 (vendor 'highlight-symbol)
+(vendor 'indent-guide)
+(vendor 'project-explorer)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
