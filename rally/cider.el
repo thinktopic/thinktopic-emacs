@@ -3,7 +3,7 @@
 (add-hook 'cider-mode-hook
           '(lambda ()
              (define-key clojure-mode-map (kbd "C-c z") 'cider-switch-to-relevant-repl-buffer)
-             (cider-turn-on-eldoc-mode)
+             ;;(cider-turn-on-eldoc-mode)
              (setq cider-popup-stacktraces      nil
                    cider-repl-popup-stacktraces t
                    cider-popup-on-error         nil

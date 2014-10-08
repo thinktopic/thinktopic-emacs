@@ -38,8 +38,11 @@
 (eval-after-load 'yasnippet
   '(add-hook 'web-mode-hook 'yas-html-mode))
 
-;;; Web-mode inherits from prog-mode, but we don't want auto-fill.
-(add-hook 'web-mode-hook '(lambda () (auto-fill-mode -1)))
+;;; Auto-fill-mode is set to only auto-fill (wrap) inside comments,
+;;; but for reasons unknown, that doesn't seem to work in several
+;;; modes, inlcuding web-mode, js-mode, html-mode...
+(dolist (hook '(web-mode-hook js-mode-hook js2-mode-hook html-mode-hook))
+  (add-hook hook '(lambda () (auto-fill-mode -1))))
 
 ;;; emmet-mode is the new zencoding-mode. If you have to write HTML by
 ;;; hand, this will blow your little mind.

@@ -30,7 +30,7 @@
 (vendor 'align-cljlet)
 (vendor 'paredit)
 (vendor 'cider)
-(vendor 'jtags)
+;;(vendor 'jtags)
 (vendor 'scala-mode)
 (vendor 'projectile)
 (vendor 'ack-and-a-half 'ack-and-a-half 'ack-and-a-half-same 'ack-and-a-half-find-file 'ack-and-a-half-find-file-same 'ack-and-a-half-interactive)
@@ -54,6 +54,7 @@
 (vendor 'highlight-symbol)
 (vendor 'indent-guide)
 (vendor 'gist)
+(vendor 'project-explorer)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
