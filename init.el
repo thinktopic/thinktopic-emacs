@@ -53,6 +53,7 @@
 (vendor 'git-timemachine)
 (vendor 'highlight-symbol)
 (vendor 'indent-guide)
+(vendor 'gist)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
@@ -83,6 +84,10 @@
 (load "rally/mouse")
 (load "rally/webdev")
 (load "rally/git-gutter")
+
+;;; Automatically open gists in the browser after creation
+;;; * doesn't work in spoon!
+(set-variable 'gist-view-gist t)
 
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
