@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: transferPropsTo
+# key: tpt
+# binding: direct-keybinding
+# --
+this.transferPropsTo($0);

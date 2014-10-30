@@ -32,11 +32,14 @@
 ;;; yasnippet is hot
 (yas-global-mode +1)
 
-;;; Tell yasnippet that web-mode == html-mode (more-or-less)
-(defun yas-html-mode ()
-  (yas-activate-extra-mode 'html-mode))
+(vendor 'react-snippets)
+
+;;; Configure yasnippet for web-mode
 (eval-after-load 'yasnippet
-  '(add-hook 'web-mode-hook 'yas-html-mode))
+  '(add-hook 'web-mode-hook
+             #'(lambda ()
+                 (dolist (mode '(html-mode js-mode))
+                   (yas-activate-extra-mode mode)))))
 
 ;;; Auto-fill-mode is set to only auto-fill (wrap) inside comments,
 ;;; but for reasons unknown, that doesn't seem to work in several
