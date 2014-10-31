@@ -13,6 +13,10 @@ We think for a couple of reasons.
 * `cd` into the clone of this repository and run `setup`.
 * `source ~/.zshrc` or restart your terminal session.
 
+## Setup Protips
+* Rally-emacs has been tested in `iTerm` with some custom `iTerm` config. To make sure everything is setup just right. Quit the `iTerm` process. Open `Terminal`. Run `setup`. Quit `Terminal`. Reopen `iTerm`.
+* Make sure your `~/.zhsrc` has `emacs` in the `plugin` list
+
 ## OK, Now what? How do I use Emacs?
 It does take some work to become an emacs master, but with just a few keyboard shortcuts you can get started.
 
