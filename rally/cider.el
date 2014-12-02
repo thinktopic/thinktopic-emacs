@@ -18,7 +18,9 @@
   (when (and cider-reload-on-save
              (member "cider-mode" (get-active-modes))
              (not (string/ends-with (buffer-name) "project.clj")))
-    (cider-load-current-buffer)))
+    (if (fboundp 'cider-load-current-buffer)
+        (cider-load-current-buffer)
+      (cider-load-buffer))))
 
 (defadvice save-buffer (after cider-reload-saved-file activate)
   (cider-auto-reload))
