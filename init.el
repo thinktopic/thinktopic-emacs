@@ -26,7 +26,7 @@
 (vendor 'inf-ruby)
 (vendor 'outline-magic)
 (vendor 'clojure-mode)
-(vendor 'clojure-test-mode)
+;;(vendor 'clojure-test-mode)
 (vendor 'groovy-mode)
 (vendor 'align-cljlet)
 (vendor 'paredit)
