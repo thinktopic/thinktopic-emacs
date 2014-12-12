@@ -8,4 +8,11 @@
              (define-key clojure-mode-map (kbd "RET") 'paredit-newline)
              (define-key clojure-mode-map (kbd "<backtab>") 'outline-cycle-clojure)))
 
+;;; Fix weird indentation in clojure-mode
+(eval-after-load 'clojure-mode
+  '(progn
+     (define-clojure-indent
+       (-> 0)
+       (->> 0))))
+
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
