@@ -23,7 +23,8 @@
       (cider-load-buffer))))
 
 (defadvice save-buffer (after cider-reload-saved-file activate)
-  (cider-auto-reload))
+  (ignore-errors
+    (cider-auto-reload)))
 
 (defun cider-namespace-refresh ()
   (interactive)

@@ -55,7 +55,8 @@
       )
 
 (defun save-buffer-when-modified ()
-  (when (buffer-modified-p) (save-buffer)))
+  (ignore-errors
+    (when (buffer-modified-p) (save-buffer))))
 
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
