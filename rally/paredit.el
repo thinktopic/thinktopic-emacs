@@ -49,14 +49,13 @@
   (insert " ")
   (forward-char -1))
 
-(define-key paredit-mode-map (kbd "M-)")
-  'paredit-wrap-round-from-behind)
 
 ;; Set up paredit keybindings that work in terminal
 (eval-after-load 'paredit
   '(progn
      (define-key paredit-mode-map (kbd "C-<up>") 'paredit-splice-sexp-killing-backward)
      ; (define-key paredit-mode-map (kbd "s-d") 'paredit-duplicate-closest-sexp)
+     (define-key paredit-mode-map (kbd "M-)") 'paredit-wrap-round-from-behind)
      ))
 
 

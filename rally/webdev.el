@@ -47,9 +47,11 @@
 ;;; emmet-mode is the new zencoding-mode. If you have to write HTML by
 ;;; hand, this will blow your little mind.
 (vendor 'emmet-mode)
-(define-key emmet-mode-keymap (kbd "C-j") nil)
-(define-key emmet-mode-keymap (kbd "M-RET") 'emmet-expand-line)
-(custom-set-default 'emmet-preview-default nil)
+(eval-after-load 'emmet-mode
+  '(progn
+     (define-key emmet-mode-keymap (kbd "C-j") nil)
+     (define-key emmet-mode-keymap (kbd "M-RET") 'emmet-expand-line)
+     (custom-set-default 'emmet-preview-default nil)))
 
 (dolist (hook '(web-mode-hook html-mode-hook))
   (add-hook hook '(lambda () (emmet-mode 1))))

@@ -31,7 +31,8 @@
       (if autoload-functions
           (dolist (autoload-function autoload-functions)
             (autoload autoload-function (symbol-name library) nil t))
-        (require library)))
+        ;;(require library)
+        ))
     (when (file-exists-p (concat personal ".el"))
       (load personal))))
 
