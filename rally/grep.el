@@ -9,7 +9,7 @@
 ;; Only works inside a git project, but that's almost always what I
 ;; want. 
 (defun git-grep-dwim (regexp &optional files dir)
-  (interactive
-   (list (grep-read-regexp) "*" (progn (require 'ack-and-a-half)
-                                       (ack-and-a-half-guess-project-root))))
+  ;;(interactive
+  ;; (list (grep-read-regexp) "*" (progn (require 'ack-and-a-half)
+  ;;                                     (ack-and-a-half-guess-project-root))))
   (vc-git-grep regexp files dir))
