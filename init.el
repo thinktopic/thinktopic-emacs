@@ -33,8 +33,10 @@
 ;;(vendor 'jtags)
 (vendor 'scala-mode)
 (vendor 'projectile)
-(vendor 'ack-and-a-half 'ack-and-a-half 'ack-and-a-half-same 'ack-and-a-half-find-file 'ack-and-a-half-find-file-same 'ack-and-a-half-interactive)
+;; ack-and-a-half has been abandonwared
+;;(vendor 'ack-and-a-half 'ack-and-a-half 'ack-and-a-half-same 'ack-and-a-half-find-file 'ack-and-a-half-find-file-same 'ack-and-a-half-interactive)
 (vendor 'smex)
+(vendor 'ag)
 (vendor 'color-theme)
 (vendor 'magit)
 (vendor 'yasnippet)
