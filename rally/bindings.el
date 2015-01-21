@@ -6,11 +6,6 @@
 (global-set-key (kbd "C-S-k")     'kill-this-buffer)
 (global-set-key (kbd "C-x C-k k") 'kill-this-buffer)
 
-;;(global-set-key (kbd "C-S-f")     'ack-and-a-half) ; doesn't work in terminal
-;;(global-set-key (kbd "C-x C-a")   'ack-and-a-half)
-;;(global-set-key (kbd "C-x M-g")   'ack-and-a-half-same)
-
-;;(global-set-key (kbd "C-x C-g")   'git-grep-dwim)
 (global-set-key (kbd "C-x C-g")   'ag-project)
 
 (global-set-key (kbd "C-x M-d")   'dired-r)
