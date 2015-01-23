@@ -8,6 +8,7 @@ apt-get install -y wget
 apt-get install -y python-setuptools
 apt-get install -y xsel
 apt-get install -y python-pip
+apt-get install -y silversearcher-ag
 
 easy_install httpie
 pip install https://github.com/Lokaltog/powerline/tarball/develop
