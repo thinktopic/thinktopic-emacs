@@ -12,6 +12,7 @@ brew install reattach-to-user-namespace
 brew install python
 brew install wget
 brew install leiningen
+brew install the_silver_searcher
 pip install https://github.com/Lokaltog/powerline/tarball/develop
 
 # NOTE: by default homebrew does not compile emacs with os x
