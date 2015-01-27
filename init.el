@@ -55,6 +55,7 @@
 (vendor 'indent-guide)
 (vendor 'gist)
 (vendor 'project-explorer)
+(vendor 'discover)
 
 ;; org has to be different
 (ensure-package-is-installed 'org-plus-contrib)
