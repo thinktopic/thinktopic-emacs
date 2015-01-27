@@ -10,8 +10,10 @@ We think for a couple of reasons.
 
 ## How do I get started?
 * Clone this repo.
+* Quit `iterm2` and launch `terminal`
 * `cd` into the clone of this repository and run `setup`.
 * `source ~/.zshrc` or restart your terminal session.
+* Quit `terminal` and launch `iterm2` (rally-emacs only works in `iterm2`)
 
 ## Setup Protips
 * Rally-emacs has been tested in `iTerm` with some custom `iTerm` config. To make sure everything is setup just right. Quit the `iTerm` process. Open `Terminal`. Run `setup`. Quit `Terminal`. Reopen `iTerm`.
