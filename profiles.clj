@@ -16,7 +16,7 @@
                (require 'alex-and-georges.debug-repl)
                ;;(use 'print.foo)
                (vinyasa.inject/inject 'clojure.core '>
-                                      '[[clojure.repl doc source]
+                                      '[[clojure.repl doc source pst]
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
                                         [clojure.tools.namespace.repl refresh refresh-all]
