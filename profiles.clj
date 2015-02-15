@@ -8,15 +8,15 @@
                  [org.clojure/tools.namespace "0.2.8"]
                  [im.chit/vinyasa "0.2.0"]
                  [spyscope "0.1.5"]
-                 [print-foo "1.0.1"]
+                 ;;[print-foo "1.0.1"]
                  ]
   :injections [(load-file (.getAbsolutePath (clojure.java.io/file (System/getenv "HOME") ".lein/user.clj")))
                (require 'vinyasa.inject)
                (require 'spyscope.core)
                (require 'alex-and-georges.debug-repl)
-               (use 'print.foo)
+               ;;(use 'print.foo)
                (vinyasa.inject/inject 'clojure.core '>
-                                      '[[clojure.repl doc source]
+                                      '[[clojure.repl doc source pst]
                                         [clojure.pprint pprint pp]
                                         [alex-and-georges.debug-repl debug-repl]
                                         [clojure.tools.namespace.repl refresh refresh-all]
