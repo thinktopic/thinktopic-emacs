@@ -8,7 +8,10 @@
 
 (package-initialize)
 
-(require 'melpa)
+(if (and (>= emacs-major-version 24) 
+         (< emacs-minor-version 4))
+    (require 'melpa))
+
 
 ;; These help direct which packages will/will not be loaded from which archive.
 (setq package-archive-enable-alist '(("org" org org-plus-contrib)))
