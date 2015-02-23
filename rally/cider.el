@@ -36,3 +36,5 @@
 (define-key clojure-mode-map (kbd "C-c M-t") 'cider-namespace-refresh)
 
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
+
+(add-hook 'cider-repl-mode-hook '(lambda () (indent-guide-mode -1)))
