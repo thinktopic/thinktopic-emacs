@@ -13,7 +13,9 @@
   '(progn
      (define-clojure-indent
        (-> 0)
-       (->> 0))))
+       (->> 0))
+     (put 'defcomponent 'clojure-backtracking-indent '(4 4 (2)))
+     ))
 
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
