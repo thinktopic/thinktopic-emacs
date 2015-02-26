@@ -112,5 +112,5 @@
 
 (defun maybe-quit ()
   (interactive)
-  (if (yes-or-no-p "Quit Emacs?")
+  (if (y-or-n-p "Quit Emacs?")
       (save-buffers-kill-terminal)))
