@@ -3,7 +3,7 @@
             [jonase/eastwood "0.2.1"]]}
  :repl
  {:plugins      [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
-                 [refactor-nrepl "0.2.2"]]
+                 [refactor-nrepl "0.3.0-SNAPSHOT"]]
   :dependencies [[org.clojure/tools.nrepl "0.2.7"]
                  [org.clojars.gjahad/debug-repl "0.3.3"]
                  [org.clojure/tools.namespace "0.2.10"]
