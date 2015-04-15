@@ -68,6 +68,11 @@
   (insert (string-as-multibyte "ಠ_ಠ")))
 (global-set-key (kbd "C-x _") 'look-of-disapproval)
 
+(defun rageflip ()
+  (interactive)
+  (insert (string-as-multibyte "(ノಠ益ಠ)ノ彡 ┻━┻")))
+(global-set-key (kbd "C-x !") 'rageflip)
+
 ;; Comment or uncomment lines and regions. 
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
