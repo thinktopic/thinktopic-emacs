@@ -11,11 +11,11 @@
 ;;; Fix weird indentation in clojure-mode
 (eval-after-load 'clojure-mode
   '(progn
-     (define-clojure-indent
-       (-> 0)
-       (->> 0))
      (put 'defcomponent 'clojure-backtracking-indent '(4 4 (2)))
      ))
 
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
+
+;;; Make M-. jump to defintion without prompting
+(set-variable 'cider-prompt-for-symbol nil)
