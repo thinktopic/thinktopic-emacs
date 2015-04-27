@@ -3,4 +3,8 @@
 (set-variable 'company-idle-delay 0.1)
 (set-variable 'company-minimum-prefix-length 1)
 
-(set-variable 'dabbrev-case-replace nil)
+(set-variable 'company-dabbrev-downcase nil)
+(set-variable 'company-dabbrev-ignore-case 'keep-prefix)
+
+(custom-set-variables '(company-frontends (quote (company-pseudo-tooltip-frontend company-echo-metadata-frontend))))
+
