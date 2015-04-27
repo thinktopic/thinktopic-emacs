@@ -86,7 +86,7 @@
 (load "rally/mouse")
 (load "rally/webdev")
 (load "rally/git-gutter")
-
+(load "rally/helm")
 ;;; Automatically open gists in the browser after creation
 ;;; * doesn't work in spoon!
 (set-variable 'gist-view-gist t)
