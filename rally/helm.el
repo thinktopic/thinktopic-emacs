@@ -8,3 +8,4 @@
 
 (global-set-key (kbd "M-x")   'helm-M-x)
 (global-set-key (kbd "C-c f") 'helm-projectile)
+(global-set-key (kbd "C-x b") 'helm-mini)
