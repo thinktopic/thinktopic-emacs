@@ -1,11 +1,12 @@
 {:user
- {:plugins [[lein-ancient "0.6.2"]
-            [jonase/eastwood "0.2.1"]]}
+ {:plugins      [[lein-ancient "0.6.7"]
+                 [jonase/eastwood "0.2.1"]
+                 [cider/cider-nrepl "0.9.0-SNAPSHOT"]
+                 [refactor-nrepl "1.1.0-SNAPSHOT"]]
+  :dependencies [[org.clojure/tools.nrepl "0.2.10"]]}
+ 
  :repl
- {:plugins      [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
-                 [refactor-nrepl "1.0.5"]]
-  :dependencies [[org.clojure/tools.nrepl "0.2.7"]
-                 [org.clojars.gjahad/debug-repl "0.3.3"]
+ {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                  [org.clojure/tools.namespace "0.2.10"]
                  [im.chit/vinyasa "0.2.0"]
                  [spyscope "0.1.5"]]
