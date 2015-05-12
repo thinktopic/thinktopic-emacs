@@ -48,5 +48,4 @@
                    ("h" "hotload dependency" cljr-hotload-dependencies)
                    ("D" "remove (debug) function invocations" cljr-remove-debug-fns)
                    ("n" "rename symbol" cljr-rename-symbol))))
- :mode 'clojure-mode
  :bind "M-RET")
