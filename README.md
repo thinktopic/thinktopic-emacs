@@ -19,6 +19,32 @@ We think for a couple of reasons.
 * Rally-emacs has been tested in `iTerm` with some custom `iTerm` config. To make sure everything is setup just right. Quit the `iTerm` process. Open `Terminal`. Run `setup`. Quit `Terminal`. Reopen `iTerm`.
 * Make sure your `~/.zhsrc` has `emacs` in the `plugin` list
 
+## Using Stable version of Cider
+
+By default, we use the snapshot version of cider and cider-nrepl.
+
+If you have problems with this, and want to use the stable versions, here is what you need to do:
+
+- Change the symlink of `profiles.clj` in `~/.lein` to point to `profiles-stable.clj` instead of `profiles.clj` in the root of this repo.
+- In `~/.emacs.d` create a folder named `checkouts`
+- Inside checkouts, clone cider and clj-refactor from github (see below), and checkout the tags for the stable versions
+- Restart emacs
+
+```
+> cd ~/.lein
+> rm profiles.clj
+> ln -s ~/project/rally-emacs/profiles-stable.clj profiles.clj
+> cd ~/.emacs.d
+> mkdir checkouts
+> cd checkouts
+> git clone https://github.com/clojure-emacs/cider
+> git clone https://github.com/clojure-emacs/clj-refactor.el
+> cd cider
+> git checkout v0.8.2
+> cd ../clj-refactor.el
+> git checout 1.0.5
+```
+
 ## OK, Now what? How do I use Emacs?
 It does take some work to become an emacs master, but with just a few keyboard shortcuts you can get started.
 
