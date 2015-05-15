@@ -1,6 +1,10 @@
 (ns user
-  (:require [clojure.pprint :as pprint])
-  (:require [clojure.test :as test]))
+  (:require [clojure.pprint :as pprint]
+            [clojure.test :as test]
+            [vinyasa.inject]
+            [spyscope.core]
+            [alex-and-georges.debug-repl]))
+
 
 (defmacro run-test
   "Runs the test, with the namespace fixtures."
@@ -13,3 +17,12 @@
 (defn spy [m]
   (pprint/pprint m)
   m)
+
+(defn inject-repl-utils []
+  (vinyasa.inject/inject 'clojure.core '>
+                         '[[clojure.repl doc source pst]
+                           [clojure.pprint pprint pp]
+                           [alex-and-georges.debug-repl debug-repl]
+                           [clojure.tools.namespace.repl refresh refresh-all]
+                           [user run-test spy]
+                           ]))
