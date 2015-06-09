@@ -18,10 +18,15 @@
   (pprint/pprint m)
   m)
 
+(defn pprint [& args]
+  (doseq [arg args]
+    (clojure.pprint/pprint arg)))
+
 (defn inject-repl-utils []
   (vinyasa.inject/inject 'clojure.core '>
                          '[[clojure.repl doc source pst]
-                           [clojure.pprint pprint pp]
+                           [clojure.pprint pp]
+                           [user pprint]
                            [alex-and-georges.debug-repl debug-repl]
                            [clojure.tools.namespace.repl refresh refresh-all]
                            [user run-test spy]
