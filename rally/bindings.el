@@ -6,8 +6,8 @@
 (global-set-key (kbd "C-S-k")     'kill-this-buffer)
 (global-set-key (kbd "C-x C-k k") 'kill-this-buffer)
 
-(global-set-key (kbd "C-x C-g")   'ag-project)
-(global-set-key (kbd "C-x C-a")   'projectile-ag)
+(global-set-key (kbd "C-x C-g")   'projectile-ag)
+(global-set-key (kbd "C-x C-a")   'ag-project)
 
 (global-set-key (kbd "C-x M-d")   'dired-r)
 (global-set-key (kbd "<f8>")      'toggle-truncate-lines)
