@@ -36,7 +36,7 @@
 (vendor 'smex)
 (vendor 'ag)
 (vendor 'color-theme)
-(vendor 'magit)
+;;(vendor 'magit)
 (vendor 'yasnippet)
 (vendor 'multiple-cursors 'mc/edit-lines 'mc/mark-next-like-this 'mc/mark-previous-like-this 'mc/mark-all-like-this 'set-rectangular-region-anchor)
 (vendor 'key-chord)
@@ -46,7 +46,7 @@
 (vendor 'rainbow-delimiters)
 (vendor 'powerline)
 (vendor 'clj-refactor)
-(vendor 'git-gutter+)
+;;(vendor 'git-gutter+)
 (vendor 'elixir-mode)
 (vendor 'dockerfile-mode)
 (vendor 'company)
@@ -85,8 +85,9 @@
 (load "rally/refactor")
 (load "rally/mouse")
 (load "rally/webdev")
-(load "rally/git-gutter")
+;;(load "rally/git-gutter")
 (load "rally/helm")
+(load "rally/clipboard")
 ;;; Automatically open gists in the browser after creation
 ;;; * doesn't work in spoon!
 (set-variable 'gist-view-gist t)
