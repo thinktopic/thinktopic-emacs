@@ -1,9 +1,8 @@
 {:user
  {:plugins      [[lein-ancient "0.6.7"]
-                 [jonase/eastwood "0.2.1"]
-                 [cider/cider-nrepl "0.9.1-SNAPSHOT"]
-                 [refactor-nrepl "1.1.0-SNAPSHOT"]
-                 [quickie "0.3.10"]]
+                 [cider/cider-nrepl "0.10.0-SNAPSHOT"]
+                 [refactor-nrepl "1.2.0-SNAPSHOT"]
+                 [quickie "0.4.0"]]
   :dependencies [[org.clojure/tools.nrepl "0.2.10"]]
   
   :repl-options
