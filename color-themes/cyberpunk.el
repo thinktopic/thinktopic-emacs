@@ -70,8 +70,8 @@
      (diff-added ((t (:foreground "green"))))
      (diff-removed ((t (:foreground "red"))))
 
-     (magit-diff-add ((t (:foreground "green"))))
-     (magit-diff-del ((t (:foreground "red"))))
+     (magit-diff-added ((t (:foreground "green"))))
+     (magit-diff-removed ((t (:foreground "red"))))
      (magit-item-highlight ((t (:background "gray15"))))
      (magit-section-title ((t (:foreground "deep pink"))))
      (magit-diff-hunk-header ((t (:foreground "orange"))))
