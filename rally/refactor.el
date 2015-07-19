@@ -2,7 +2,10 @@
 ;; (add-hook 'clojure-mode-hook (lambda ()
 ;;                                (clj-refactor-mode 1)
 ;;                                (lambda () (yas/minor-mode 1))
-;;                                (cljr-add-keybindings-with-prefix "C-c m")))
+;;                                (cljr-add-keybindings-with-prefix
+;;                                "C-c m")))
+
+(setq cljr-favor-prefix-notation nil)
 
 (global-discover-mode)
 (discover-add-context-menu
@@ -21,31 +24,36 @@
                    ("M" "move to let" cljr-move-to-let)
                    ("L" "remove-let" cljr-remove-let))
                   ("Regular"
-                   ("a" "add declaration for current top-level form" cljr-auto-sort-ns)
+                   ("a" "add declaration for current top-level form" cljr-add-declaration)
                    ("c" "cycle surrounding collection type" cljr-cycle-coll)
                    ("I" "refactoring between if and if-not" cljr-cycle-if)
                    ("p" "cycle privacy of defns and defs" cljr-cycle-privacy)
                    ("k" "destructure keys" cljr-destructure-keys)
                    ("m" "move forms to another namespace" cljr-move-form)
                    ("f" "promote function" cljr-promote-function)
-                   ("K" "stop referring" cljr-stop-referring))
+                   ("x" "extract function" cljr-extract-function)
+                   ("U" "find usages" cljr-find-usages)
+                   ("D" "remove (debug) function invocations" cljr-remove-debug-fns)
+                   ("A" "Add stubs for the interface or protocol at poing" cljr-add-stubs)
+                   ("F" "Create function from example" cljr-create-fn-from-example)
+                   ("N" "Inline symbol" cljr-inline-symbol))
+                  ("Rename"
+                   ("n" "rename symbol" cljr-rename-symbol)
+                   ("R" "rename file or directory" cljr-rename-file-or-dir))
                   ("Namespaces"
+                   ("b" "add a missing libspec" cljr-add-missing-libspec)
+                   ("q" "perform various cleanups on the ns form" cljr-clean-ns)
                    ("i" "add import to namespace declaration" cljr-add-import-to-ns)
                    ("r" "add require to namespace declaration" cljr-add-require-to-ns)
                    ("u" "add 'use' (ie require refer all)" cljr-add-use-to-ns)
-                   ("R" "rename file, update ns-declaration" cljr-rename-file)
                    ("v" "remove unused requires" cljr-remove-unused-requires)
+                   ("K" "stop referring" cljr-stop-referring)
                    ("y" "replace all :use with :refer :all" cljr-replace-use)
                    ("s" "sort :use, :require and :import" cljr-sort-ns))
-                  ("Bonus"
+                  ("Project"
                    ("S" "sort all dependencies in project.clj" cljr-sort-project-dependencies)
                    ("C" "run project cleaner functions" cljr-project-clean)
-                   ("b" "add a missing libspec" cljr-add-missing-libspec)
                    ("d" "add a dependency to your project" cljr-add-project-dependency)
-                   ("q" "perform various cleanups on the ns form" cljr-clean-ns)
-                   ("x" "extract function" cljr-extract-function)
-                   ("U" "find usages" cljr-find-usages)
                    ("h" "hotload dependency" cljr-hotload-dependencies)
-                   ("D" "remove (debug) function invocations" cljr-remove-debug-fns)
-                   ("n" "rename symbol" cljr-rename-symbol))))
+                   ("P" "update project dependencies" cljr-update-project-dependencies))))
  :bind "M-RET")
