@@ -40,7 +40,7 @@
 (vendor 'yasnippet)
 (vendor 'multiple-cursors 'mc/edit-lines 'mc/mark-next-like-this 'mc/mark-previous-like-this 'mc/mark-all-like-this 'set-rectangular-region-anchor)
 (vendor 'key-chord)
-(vendor 'ace-jump-mode)
+(vendor 'avy)
 (vendor 'puppet-mode)
 (vendor 'smooth-scrolling)
 (vendor 'rainbow-delimiters)

@@ -69,3 +69,6 @@
 ;; Like "*" in vim:
 (global-set-key (kbd "<f5>")      'highlight-symbol-next)
 (global-set-key (kbd "S-<f5>")    'highlight-symbol-prev)
+
+;;avy
+(global-set-key (kbd "M-j") 'avy-goto-char)
