@@ -6,7 +6,7 @@
 (custom-set-variables '(js2-basic-offset 2))
 
 (setq js2-highlight-level 3)
-(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'js2-minor-mode)
 (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
 
 ;; Javascript autocomplete
