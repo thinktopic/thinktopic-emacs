@@ -92,6 +92,10 @@
 ;;; * doesn't work in spoon!
 (set-variable 'gist-view-gist t)
 
+;;; ag setup
+(setq ag-highlight-search t)
+(setq ag-reuse-buffers t)
+
 ;;; Load user-init.
 ;;; NOTE: Keep this last, so that the user-init can override stuff that was set in this file.
 (let ((user-init (concat user-emacs-directory "user.init.el")))
