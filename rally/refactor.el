@@ -6,6 +6,7 @@
 ;;                                "C-c m")))
 
 (setq cljr-favor-prefix-notation nil)
+(setq cljr-use-multiple-cursors nil)
 
 (global-discover-mode)
 (discover-add-context-menu
