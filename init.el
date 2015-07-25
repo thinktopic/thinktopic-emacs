@@ -33,7 +33,6 @@
 ;;(vendor 'jtags)
 (vendor 'scala-mode)
 (vendor 'projectile)
-(vendor 'smex)
 (vendor 'ag)
 (vendor 'color-theme)
 (vendor 'magit)
