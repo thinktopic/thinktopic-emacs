@@ -25,9 +25,16 @@
 
 ;;; Web-mode is great for HTML with embedded JS and/or CSS
 (vendor 'web-mode)
-(dolist (ext '("\\.html$" "\\.mustache$" "\\.handlebars$" "\\.jsx$"))
+(dolist (ext '("\\.html$" "\\.mustache$" "\\.handlebars$" "\\.jsx$" "\\.react.js$"))
   (add-to-list 'auto-mode-alist (cons ext 'web-mode)))
-
+(setq web-mode-enable-auto-pairing t)
+(setq web-mode-enable-auto-closing t)
+(setq web-mode-enable-comment-keywords '("TODO" "FIXME"))
+(setq web-mode-content-types-alist
+      '(("jsx" . "\\.js[x]?\\'")))
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
 
 ;;; yasnippet is hot
 (yas-global-mode +1)
