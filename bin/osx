@@ -28,8 +28,8 @@ pip install https://github.com/Lokaltog/powerline/tarball/develop
 # whereas it is easy to determine if emacsformacosx is already
 # installed correctly.
 if [ ! -d /Applications/Emacs.app ]; then
-    wget http://emacsformacosx.com/emacs-builds/Emacs-24.3-universal-10.6.8.dmg    
-    hdiutil mount -noautoopen -mountpoint Installer Emacs-24.3-universal-10.6.8.dmg
+    wget http://emacsformacosx.com/emacs-builds/Emacs-24.4-universal.dmg
+    hdiutil mount -noautoopen -mountpoint Installer Emacs-24.4-universal.dmg
     cp -r Installer/Emacs.app /Applications/
     hdiutil unmount Installer
 
