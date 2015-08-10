@@ -50,6 +50,7 @@ setw -g clock-mode-colour colour32
 setw -g clock-mode-style 24
 setw -g aggressive-resize on
 set -g base-index 1
+set -sg escape-time 0
 
 # More straight forward key bindings for splitting
 bind-key | split-window -h
