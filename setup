@@ -10,7 +10,7 @@ mkdir -p ~/.lein
 if [ ! -L ~/.lein/profiles.clj ]; then
     if [ -f !/.lein/profiles.clj ]; then
         mkdir -p bak
-        mv ~/.lien/profiles.clj bak
+        mv ~/.lein/profiles.clj bak
     fi 
     ln -s `pwd`/profiles.clj ~/.lein/profiles.clj
 fi
