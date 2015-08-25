@@ -56,5 +56,16 @@
                    ("C" "run project cleaner functions" cljr-project-clean)
                    ("d" "add a dependency to your project" cljr-add-project-dependency)
                    ("h" "hotload dependency" cljr-hotload-dependencies)
-                   ("P" "update project dependencies" cljr-update-project-dependencies))))
- :bind "M-RET")
+                   ("P" "update project dependencies" cljr-update-project-dependencies)))))
+
+
+(defun clojure-refactoring-menu ()
+  (interactive)
+  (let ((save-on-lose-focus-value save-on-lose-focus))
+    (unwind-protect
+        (progn
+          (setq save-on-lose-focus nil)
+          (makey-key-mode-popup-all-the-refactorings))
+      (setq save-on-lose-focus save-on-lose-focus-value))))
+
+(define-key clojure-mode-map (kbd "M-RET") 'clojure-refactoring-menu)

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: refclj
+# key: refclj
+# binding: direct-keybinding
+# --
+(:refer-clojure :exclude [$0])

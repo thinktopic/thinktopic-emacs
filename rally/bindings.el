@@ -30,6 +30,10 @@
 ;; Turn paredit on and off easily
 (global-set-key (kbd "<f9>") 'paredit-mode)
 
+;; Use <f6> and <f7> for previous/next-error (eg: search results)
+(global-set-key (kbd "<f6>") 'previous-error)
+(global-set-key (kbd "<f7>") 'next-error)
+
 ;; Font size
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)

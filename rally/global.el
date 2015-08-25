@@ -54,9 +54,12 @@
       backup-directory-alist `(("." . ,(expand-file-name "~/.emacs.d/backups")))
       )
 
+(defvar save-on-lose-focus t)
+
 (defun save-buffer-when-modified ()
   (ignore-errors
-    (when (buffer-modified-p) (save-buffer))))
+    (when (and save-on-lose-focus (buffer-modified-p))
+      (save-buffer))))
 
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
