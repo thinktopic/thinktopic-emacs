@@ -17,7 +17,7 @@ We think for a couple of reasons.
 
 ## Setup Protips
 * Rally-emacs has been tested in `iTerm` with some custom `iTerm` config. To make sure everything is setup just right. Quit the `iTerm` process. Open `Terminal`. Run `setup`. Quit `Terminal`. Reopen `iTerm`.
-* Make sure your `~/.zhsrc` has `emacs` in the `plugin` list
+* Make sure your `~/.zshrc` has `emacs` in the `plugin` list
 
 ## Using Stable version of Cider
 
