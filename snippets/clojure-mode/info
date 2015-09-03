@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: info
+# key: info
+# binding: direct-keybinding
+# --
+(log/info {:message "$1"$0})

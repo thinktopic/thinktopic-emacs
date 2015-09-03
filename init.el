@@ -36,6 +36,7 @@
 (vendor 'ag)
 (vendor 'color-theme)
 (vendor 'magit)
+(vendor 'magit-gh-pulls)
 (vendor 'yasnippet)
 (vendor 'multiple-cursors 'mc/edit-lines 'mc/mark-next-like-this 'mc/mark-previous-like-this 'mc/mark-all-like-this 'set-rectangular-region-anchor)
 (vendor 'key-chord)
