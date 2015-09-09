@@ -9,6 +9,11 @@ We think for a couple of reasons.
 2. Using Emacs allows us to [remote pair](README.md#remote-pairing) without having the "lag" of a VNC session.
 
 ## How do I get started?
+* Make sure you have the latest emacs. Maverick comes with version 22 but you need 24 for rally emacs to work
+* `emacs --version`
+* Get the latest emacs if needed:
+* `brew update`
+* `brew install emacs --with-cocoa`
 * Clone this repo.
 * Quit `iterm2` and launch `terminal`
 * `cd` into the clone of this repository and run `setup`.
