@@ -34,6 +34,35 @@ if [ ! -d /Applications/Emacs.app ]; then
     cp -r Installer/Emacs.app /Applications/
     hdiutil unmount Installer
 
+    FILENAME='gnu.emacs.daemon.plist'
+    USERNAME="$(whoami)"
+    DIRNAME='/Library/LaunchAgents'
+
+    rm -f ${FILENAME} && touch ${FILENAME} && \
+    echo '<?xml version="1.0" encoding="UTF-8"?>'                              >> ${FILENAME} && \
+    echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"'                >> ${FILENAME} && \
+    echo '    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">'               >> ${FILENAME} && \
+    echo '<plist version="1.0">'                                               >> ${FILENAME} && \
+    echo '  <dict>'                                                            >> ${FILENAME} && \
+    echo '    <key>Label</key>'                                                >> ${FILENAME} && \
+    echo '    <string>gnu.emacs.daemon</string>'                               >> ${FILENAME} && \
+    echo '    <key>ProgramArguments</key>'                                     >> ${FILENAME} && \
+    echo '    <array>'                                                         >> ${FILENAME} && \
+    echo '      <string>/Applications/Emacs.app/Contents/MacOS/Emacs</string>' >> ${FILENAME} && \
+    echo '      <string>--daemon</string>'                                     >> ${FILENAME} && \
+    echo '    </array>'                                                        >> ${FILENAME} && \
+    echo '    <key>RunAtLoad</key>'                                            >> ${FILENAME} && \
+    echo '    <true/>'                                                         >> ${FILENAME} && \
+    echo '    <key>ServiceDescription</key>'                                   >> ${FILENAME} && \
+    echo '    <string>Gnu Emacs Daemon</string>'                               >> ${FILENAME} && \
+    echo '    <key>UserName</key>'                                             >> ${FILENAME} && \
+    echo "    <string>${USERNAME}</string>"                                    >> ${FILENAME} && \
+    echo '  </dict>'                                                           >> ${FILENAME} && \
+    echo '</plist>'                                                            >> ${FILENAME} && \
+    echo "Creating ${DIRNAME}/${FILENAME}" && \
+    sudo cp ${FILENAME} ${DIRNAME} && \
+    rm ${FILENAME}
+
     echo "" >> ~/.bashrc
     echo "export TERM=xterm-256color" >> ~/.bashrc
     echo "alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'" >> ~/.bashrc
