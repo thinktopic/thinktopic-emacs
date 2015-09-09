@@ -13,7 +13,8 @@ brew install python
 brew install wget
 brew install leiningen
 brew install the_silver_searcher
-pip install https://github.com/Lokaltog/powerline/tarball/develop
+pip install powerline-status
+pip install psutil
 
 # NOTE: by default homebrew does not compile emacs with os x
 # specific options, the standard emacs is missing the following:
