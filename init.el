@@ -23,10 +23,25 @@
 (vendor 'expand-region)
 (vendor 'multiple-cursors)
 (vendor 'markdown-mode 'markdown-mode 'gfm-mode)
+
+;; ruby stuff
 (vendor 'ruby-mode)
+(vendor 'ruby-tools)
+(vendor 'ruby-block)
+(vendor 'ruby-additional)
+(vendor 'ruby-hash-syntax)
+(vendor 'ruby-refactor)
+(vendor 'rspec-mode)
+(vendor 'rvm)
+(vendor 'inf-ruby)
+(vendor 'projectile-rails)
+(vendor 'robe)
+
 (vendor 'yaml-mode)
 (vendor 'haml-mode)
-(vendor 'inf-ruby)
+
+
+
 (vendor 'outline-magic)
 (vendor 'clojure-mode)
 (vendor 'groovy-mode)
