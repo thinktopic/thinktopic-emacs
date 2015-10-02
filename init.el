@@ -37,10 +37,10 @@
 (vendor 'projectile-rails)
 (vendor 'robe)
 
+(vendor 'restclient)
+
 (vendor 'yaml-mode)
 (vendor 'haml-mode)
-
-
 
 (vendor 'outline-magic)
 (vendor 'clojure-mode)
