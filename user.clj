@@ -22,6 +22,29 @@
   (doseq [arg args]
     (clojure.pprint/pprint arg)))
 
+(defn contextual-eval [ctx expr]
+  (eval
+   `(let [~@(mapcat (fn [[k v]] [k `'~v]) ctx)]
+      ~expr)))
+
+(defn readr [prompt exit-code]
+  (let [input (clojure.main/repl-read prompt exit-code)]
+    (if (= input :exit)
+      exit-code
+      input)))
+
+(defmacro local-context []
+  (let [symbols (keys &env)]
+    (zipmap (map (fn [sym] `(quote ~sym))
+                 symbols)
+            symbols)))
+
+(defmacro break []
+  `(clojure.main/repl
+    :prompt #(print "debug=> ")
+    :read readr
+    :eval (partial contextual-eval (local-context))))
+
 (defn inject-repl-utils []
   (vinyasa.inject/inject 'clojure.core '>
                          '[[clojure.repl doc source pst]
@@ -30,4 +53,5 @@
                            [alex-and-georges.debug-repl debug-repl]
                            [clojure.tools.namespace.repl refresh refresh-all]
                            [user run-test spy]
+                           [user readr local-context break]
                            ]))
