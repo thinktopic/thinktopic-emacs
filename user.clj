@@ -46,12 +46,11 @@
     :eval (partial contextual-eval (local-context))))
 
 (defn inject-repl-utils []
-  (vinyasa.inject/inject 'clojure.core '>
-                         '[[clojure.repl doc source pst]
-                           [clojure.pprint pp]
-                           [user pprint]
-                           [alex-and-georges.debug-repl debug-repl]
-                           [clojure.tools.namespace.repl refresh refresh-all]
-                           [user run-test spy]
-                           [user readr local-context break]
-                           ]))
+  (vinyasa.inject/in clojure.core >
+                     [clojure.repl doc source pst]
+                     [clojure.pprint pp]
+                     [user pprint]
+                     [alex-and-georges.debug-repl debug-repl]
+                     [clojure.tools.namespace.repl refresh refresh-all]
+                     [user run-test spy readr local-context break]
+                     ))

@@ -12,5 +12,5 @@
  :repl
  {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                  [org.clojure/tools.namespace "0.2.10"]
-                 [im.chit/vinyasa "0.2.0"]
+                 [im.chit/vinyasa "0.3.4"]
                  [spyscope "0.1.5"]]}}
