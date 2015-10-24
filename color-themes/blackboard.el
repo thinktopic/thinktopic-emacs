@@ -85,6 +85,13 @@
      (mode-line ((t (:background "gray10" :foreground "#4c83ff"))))
      (mode-line-inactive ((t (:background "gray10" :foreground "gray30"))))
 
-     )))
+     (ediff-even-diff-A ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-even-diff-B ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-even-diff-C ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-even-diff-Ancestor ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-odd-diff-A ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-odd-diff-B ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-odd-diff-C ((t (:background "#484848" :foreground "Grey"))))
+     (ediff-odd-diff-Ancestor ((t (:background "#484848" :foreground "Grey")))))))
 
 (provide 'blackboard)
