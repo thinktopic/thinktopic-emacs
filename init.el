@@ -38,6 +38,7 @@
 (vendor 'robe)
 
 (vendor 'restclient)
+(setq restclient-inhibit-cookies t)
 
 (vendor 'yaml-mode)
 (vendor 'haml-mode)
