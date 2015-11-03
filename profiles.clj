@@ -3,7 +3,7 @@
                  [cider/cider-nrepl "0.10.0-SNAPSHOT"]
                  [refactor-nrepl "2.0.0-SNAPSHOT"]
                  [quickie "0.4.0"]]
-  :dependencies [[org.clojure/tools.nrepl "0.2.10"]]
+  :dependencies [[org.clojure/tools.nrepl "0.2.12"]]
   
   :repl-options
   {:init (do (load-file (.getAbsolutePath (clojure.java.io/file (System/getenv "HOME") ".lein/user.clj")))
