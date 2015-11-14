@@ -6,6 +6,15 @@ else
     sh bin/osx
 fi
 
+backup-file() {
+    [ -f $1 ] && echo "Backing up $1 to $1.bak"
+    [ -f $1 ] && mv $1 $1.bak
+}
+
+link-if-needed() {
+    [ ! -L ~/.lein/profiles.clj ] && { backup-file ~/.lein/profiles.clj }
+}
+
 mkdir -p ~/.lein
 if [ ! -L ~/.lein/profiles.clj ]; then
     if [ -f !/.lein/profiles.clj ]; then

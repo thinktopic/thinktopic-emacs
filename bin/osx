@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! which brew; then 
+if ! which brew; then
     echo "Homebrew is not installed.  Please install that first."
     echo "http://brew.sh"
     exit 1
@@ -70,7 +70,7 @@ if [ ! -d /Applications/Emacs.app ]; then
     echo "" >> ~/.zshrc
     echo "export TERM=xterm-256color" >> ~/.zshrc
     echo "alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'" >> ~/.zshrc
-fi 
+fi
 
 cp fonts/Inconsolata-dz\ for\ Powerline.otf ~/Library/Fonts
 
