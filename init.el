@@ -1,8 +1,5 @@
 ;; Rally emacs config
 
-;; Increase garbage-collect threshold
-(setq gc-cons-threshold 1000000000)
-
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)
 
