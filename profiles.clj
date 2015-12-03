@@ -10,5 +10,6 @@
                  [refactor-nrepl "2.0.0-SNAPSHOT"]]
   :dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                  [org.clojure/tools.namespace "0.2.11"]
+                 [org.clojure/tools.nrepl "0.2.12"]
                  [im.chit/vinyasa "0.3.4"]
                  [spyscope "0.1.5"]]}}
