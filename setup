@@ -23,6 +23,14 @@ if [ ! -L ~/.lein/user.clj ]; then
     ln -s `pwd`/user.clj ~/.lein/user.clj
 fi
 
+if [ ! -L ~/.tmux.shared.conf ]; then
+    if [ -f ~/.tmux.shared.conf ]; then
+        mkdir -p bak
+        mv ~/.tmux.shared.conf bak
+    fi
+    ln -s `pwd`/tmux.shared.conf ~/.tmux.shared.conf
+fi
+
 [ -L ~/.tmux.conf ] && rm ~/.tmux.conf
 if [ ! -L ~/.tmux.conf ]; then
     if [ -f ~/.tmux.conf ]; then
