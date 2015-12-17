@@ -24,3 +24,6 @@ known_hosts
 /vendor/window-numbering/
 /smex-items
 var
+.cache
+/ido.last
+/recentf
