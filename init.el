@@ -50,6 +50,7 @@
 (vendor 'scala-mode)
 (vendor 'projectile)
 (vendor 'ag)
+(vendor 'wgrep-ag)
 (vendor 'color-theme)
 (vendor 'magit-gh-pulls)
 (vendor 'magit)
