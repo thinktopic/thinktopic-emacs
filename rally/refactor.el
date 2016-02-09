@@ -47,7 +47,7 @@
                    ("i" "add import to namespace declaration" cljr-add-import-to-ns)
                    ("r" "add require to namespace declaration" cljr-add-require-to-ns)
                    ("u" "add 'use' (ie require refer all)" cljr-add-use-to-ns)
-                   ("v" "remove unused requires" cljr-remove-unused-requires)
+                   ;;("v" "remove unused requires" cljr-remove-unused-requires)
                    ("K" "stop referring" cljr-stop-referring)
                    ("y" "replace all :use with :refer :all" cljr-replace-use)
                    ("s" "sort :use, :require and :import" cljr-sort-ns))
