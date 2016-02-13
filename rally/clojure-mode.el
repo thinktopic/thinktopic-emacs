@@ -19,3 +19,6 @@
 
 ;;; Make M-. jump to defintion without prompting
 (set-variable 'cider-prompt-for-symbol nil)
+
+;;; Better indentation
+(set-variable 'clojure-indent-style :align-arguments)
