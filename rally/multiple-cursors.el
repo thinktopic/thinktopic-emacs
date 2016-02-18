@@ -9,6 +9,6 @@
 
 (global-set-key (kbd "C-x M-'") 'mc/edit-lines)
 (global-set-key (kbd "M-+")     'mc/mark-next-like-this)
-(global-set-key (kbd "M-_")     'mc/mark-previous-like-this)
+(global-set-key (kbd "M-_")     'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-x M-+") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-x _")   'mc-hide-unmatched-lines-mode)
