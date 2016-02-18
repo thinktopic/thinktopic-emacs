@@ -14,13 +14,17 @@
      (once-fixture-fn#
       #(each-fixture-fn# ~test-fn))))
 
-(defn spy [m]
-  (pprint/pprint m)
-  m)
-
 (defn pprint [& args]
   (doseq [arg args]
     (clojure.pprint/pprint arg)))
+
+(defn spy
+  ([m]
+   (pprint/pprint m)
+   m)
+  ([m label]
+   (pprint label m)
+   m))
 
 (defn contextual-eval [ctx expr]
   (eval
