@@ -130,3 +130,12 @@
         (kill-region beg end)
         (insert decoded))
     (message "No region is active")))
+
+(defun align-dwim ()
+  (interactive)
+  (align-regexp (region-beginning)
+                (region-end)
+                "\\(\\s-*\\)\\s-"
+                1
+                0
+                t))
