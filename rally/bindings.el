@@ -15,7 +15,7 @@
 
 
 ;; File finding
-(global-set-key (kbd "C-x f")   'recentf-ido-find-file)
+(global-set-key (kbd "C-x f")   'helm-recentf)
 (global-set-key (kbd "C-c f")   'projectile-find-file)
 (global-set-key (kbd "C-c y")   'bury-buffer)
 (global-set-key (kbd "C-c r")   'revert-buffer)
